@@ -1,0 +1,67 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "title": "Honda Civic Touring 2022",
+      "brand": "Honda",
+      "model": "Civic Touring",
+      "category": "Sedan",
+      "year": 2022,
+      "price": 149900,
+      "km": 32000,
+      "fuel": "Flex",
+      "transmission": "Automático",
+      "color": "Prata",
+      "location": "São Paulo - SP",
+      "featured": true,
+      "description": "Sedan premium com pacote completo de segurança e interior em couro.",
+      "thumbnail": "/uploads/carro1.jpg",
+      "images": [
+        "/uploads/carro1.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": 2,
+      "title": "Jeep Compass Limited 2021",
+      "brand": "Jeep",
+      "model": "Compass Limited",
+      "category": "SUV",
+      "year": 2021,
+      "price": 169900,
+      "km": 41500,
+      "fuel": "Diesel",
+      "transmission": "Automático",
+      "color": "Branco",
+      "location": "Campinas - SP",
+      "featured": true,
+      "description": "SUV com tração 4x4, central multimídia e acabamento premium.",
+      "thumbnail": "/uploads/carro2.jpeg",
+      "images": [
+        "/uploads/carro2.jpeg"
+      ],
+      "videos": []
+    },
+    {
+      "id": 3,
+      "title": "Volkswagen Polo Highline 2023",
+      "brand": "Volkswagen",
+      "model": "Polo Highline",
+      "category": "Hatch",
+      "year": 2023,
+      "price": 108500,
+      "km": 12400,
+      "fuel": "Flex",
+      "transmission": "Automático",
+      "color": "Vermelho",
+      "location": "Curitiba - PR",
+      "featured": true,
+      "description": "Hatch com motor turbo, baixo consumo e pacote tecnológico completo.",
+      "thumbnail": "/uploads/carro3.jpg",
+      "images": [
+        "/uploads/carro3.jpg"
+      ],
+      "videos": []
+    }
+  ]
+}

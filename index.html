@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotorPlace | Marketplace de Carros</title>
+    <meta
+      name="description"
+      content="Encontre carros novos e usados no MotorPlace. Busque por marca, modelo e categoria."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
+          <span class="brand-mark" aria-hidden="true">MP</span>
+          <span class="brand-text">MotorPlace</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="#categories-title">Categorias</a></li>
+            <li><a href="#featured-title" class="btn btn-primary">Ofertas em destaque</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <article class="hero-copy">
+            <p class="eyebrow">Marketplace inteligente para carros</p>
+            <h1 id="hero-title">Seu próximo carro está a poucos cliques de distância.</h1>
+            <p>
+              Pesquise por marca, modelo ou categoria e encontre ofertas com histórico e
+              especificações completas.
+            </p>
+          </article>
+
+          <aside class="hero-search" aria-label="Busca de veículos">
+            <form class="search-form" action="#" method="get">
+              <label for="home-search">Buscar marca ou modelo</label>
+              <div class="search-row">
+                <input
+                  id="home-search"
+                  name="q"
+                  type="search"
+                  placeholder="Ex.: Civic, Corolla, SUV"
+                />
+                <button type="button" class="btn btn-accent" aria-disabled="true">
+                  Busca em breve
+                </button>
+              </div>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="categories-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 id="categories-title">Categorias</h2>
+            <p>Explore por tipo de veículo.</p>
+          </header>
+
+          <ul class="category-list" aria-label="Categorias de veículos">
+            <li><a href="#featured-title">SUVs</a></li>
+            <li><a href="#featured-title">Sedans</a></li>
+            <li><a href="#featured-title">Hatches</a></li>
+            <li><a href="#featured-title">Pickups</a></li>
+            <li><a href="#featured-title">Elétricos</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="featured-title">
+        <div class="container">
+          <header class="section-header">
+            <h2 id="featured-title">Ofertas em destaque</h2>
+            <a href="#featured-title" class="text-link">Catálogo completo em breve</a>
+          </header>
+
+          <div class="card-grid" role="list" aria-label="Veículos em destaque">
+            <article class="vehicle-card" role="listitem">
+              <figure>
+                <img src="/uploads/carro1.jpg" alt="Sedan prata em destaque" loading="lazy" />
+              </figure>
+              <div class="card-content">
+                <h3>Honda Civic Touring 2022</h3>
+                <p>Automático • 32.000 km • Flex</p>
+                <strong>R$ 149.900</strong>
+                <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+              </div>
+            </article>
+
+            <article class="vehicle-card" role="listitem">
+              <figure>
+                <img src="/uploads/carro2.jpeg" alt="SUV branca em destaque" loading="lazy" />
+              </figure>
+              <div class="card-content">
+                <h3>Jeep Compass Limited 2021</h3>
+                <p>Automático • 41.500 km • Diesel</p>
+                <strong>R$ 169.900</strong>
+                <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+              </div>
+            </article>
+
+            <article class="vehicle-card" role="listitem">
+              <figure>
+                <img src="/uploads/carro3.jpg" alt="Hatch vermelho em destaque" loading="lazy" />
+              </figure>
+              <div class="card-content">
+                <h3>Volkswagen Polo Highline 2023</h3>
+                <p>Automático • 12.400 km • Flex</p>
+                <strong>R$ 108.500</strong>
+                <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <section>
+          <h2 class="footer-title">MotorPlace</h2>
+          <p>Conectando pessoas a bons carros com transparência e praticidade.</p>
+        </section>
+        <nav aria-label="Links institucionais">
+          <ul>
+            <li><a href="#featured-title">Comprar</a></li>
+            <li><a href="#featured-title">Vender</a></li>
+            <li><a href="#hero-title">Como funciona</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
