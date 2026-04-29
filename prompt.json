@@ -1,0 +1,36 @@
+{
+  "project": "MotorPlace",
+  "stack": ["HTML Semântico", "CSS Modular", "JavaScript", "JSON"],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Configuração da Estrutura de Páginas e Servidor (Mock)",
+      "description": "Criar a estrutura base de arquivos: index.html, comprar.html, detalhes.html e vender_form.html, utilizando HTML semântico rigoroso, além das pastas css/, js/ e uploads/ (para fotos e vídeos)."
+    },
+    {
+      "id": 2,
+      "title": "Componentização de UI e Estilos",
+      "description": "Criar base.css (ou arquivos CSS particionados) para conter Header, Footer, grid systems com flexbox/css grid."
+    },
+    {
+      "id": 3,
+      "title": "Mock de Dados com data.json",
+      "description": "Preencher data.json com uma lista de carros. Simular que as referências das imagens/vídeos apontem para caminhos no 'servidor' (ex: /uploads/carro1.jpg)."
+    },
+    {
+      "id": 4,
+      "title": "Lógica da Página Inicial (index.html)",
+      "description": "Criar lógica JS específica para a Home, que lê o JSON/localStorage e injeta o grid de destaques estáticos. Interações de busca e clique levam para as referidas páginas HTML."
+    },
+    {
+      "id": 5,
+      "title": "Tela de Compra e Detalhes",
+      "description": "Construir comprar.html listando os carros disponíveis, e detalhes.html para simular recebimento de ID do carro para exibição das mídias carregadas e especificações completas."
+    },
+    {
+      "id": 6,
+      "title": "Tela de Venda e Upload Multi-Mídia",
+      "description": "Implementar vender_form.html com validação em JS. O formulário usará campos de arquivo (type='file') prevendo a funcionalidade de upload pro 'servidor'. Salvar simulação local no localStorage."
+    }
+  ]
+}
