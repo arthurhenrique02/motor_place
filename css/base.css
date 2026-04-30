@@ -84,39 +84,3 @@ a:focus-visible {
   outline: 3px solid rgba(13, 106, 99, 0.35);
   outline-offset: 2px;
 }
-
-.container {
-  width: min(calc(100% - 2rem), var(--container));
-  margin-inline: auto;
-}
-
-.section {
-  padding: 2.4rem 0;
-}
-
-.section-header {
-  margin-bottom: 1.4rem;
-}
-
-.section-header p {
-  color: var(--color-muted);
-  margin-top: 0.35rem;
-}
-
-.page-main {
-  padding-bottom: 2rem;
-}
-
-.eyebrow {
-  color: var(--color-brand);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-}
-
-@media (max-width: 800px) {
-  .section {
-    padding: 2rem 0;
-  }
-}
