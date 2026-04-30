@@ -1,0 +1,19 @@
+:root {
+  --color-bg: #f4efe8;
+  --color-surface: #fffdf8;
+  --color-ink: #1f1a17;
+  --color-muted: #5f554c;
+  --color-brand: #0d6a63;
+  --color-brand-strong: #084b46;
+  --color-accent: #ff7b2c;
+  --color-accent-strong: #d85e15;
+  --color-success: #2e7d32;
+  --color-success-strong: #1b5e20;
+  --color-border: #dfd1c4;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 10px 30px rgba(31, 26, 23, 0.08);
+
+  --container: 1120px;
+}
