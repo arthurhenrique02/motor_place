@@ -1,0 +1,23 @@
+.search-form {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.search-form label {
+  font-weight: 700;
+}
+
+.search-row {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.search-row input {
+  flex: 1;
+}
+
+@media (max-width: 680px) {
+  .search-row {
+    flex-direction: column;
+  }
+}
