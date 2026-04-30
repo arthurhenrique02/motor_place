@@ -1,0 +1,39 @@
+.site-footer {
+  border-top: 1px solid rgba(223, 209, 196, 0.9);
+  background: rgba(247, 239, 230, 0.94);
+  margin-top: 1rem;
+}
+
+.footer-inner {
+  min-height: 140px;
+  display: grid;
+  align-items: center;
+  gap: 0.9rem;
+  grid-template-columns: 2fr 1fr;
+  padding: 1rem 0;
+}
+
+.footer-title {
+  font-size: 1.15rem;
+}
+
+.footer-inner p,
+.footer-inner li {
+  color: var(--color-muted);
+}
+
+.footer-inner nav ul {
+  display: grid;
+  gap: 0.45rem;
+}
+
+@media (max-width: 800px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-inner nav ul {
+    justify-items: center;
+  }
+}
