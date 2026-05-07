@@ -27,19 +27,28 @@
     <link rel="stylesheet" href="css/utilities.css" />
   </head>
   <body>
+
     <header class="site-header">
       <div class="container header-inner">
+        <!-- Logo do site -->
         <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
           <span class="brand-mark" aria-hidden="true">MP</span>
           <span class="brand-text">MotorPlace</span>
         </a>
 
         <nav class="main-nav" aria-label="Navegação principal">
-          <ul>
+          <ul class="navbar__menu">
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="#categories-title">Categorias</a></li>
             <li><a href="#featured-title" class="btn btn-primary">Ofertas em destaque</a></li>
           </ul>
+
+          <!--botao do hambuguer -->
+          <button class="navbar__toggle" aria-label="Abrir Menu">
+            <span class="navbar__toggle-bar"></span>
+            <span class="navbar__toggle-bar"></span>
+            <span class="navbar__toggle-bar"></span>
+          </button>
         </nav>
       </div>
     </header>
@@ -140,6 +149,7 @@
       </section>
     </main>
 
+    <!-- Rodapé -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <section>
@@ -155,5 +165,8 @@
         </nav>
       </div>
     </footer>
+
+    <!--script do hambuguer -->
+    <script src="js/Hambuger.js"></script>
   </body>
 </html>
