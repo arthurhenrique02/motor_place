@@ -2,50 +2,50 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(10px);
-  background: rgba(249, 244, 238, 0.9);
-  border-bottom: 1px solid rgba(223, 209, 196, 0.7);
+  backdrop-filter: blur(var(--size-backdrop-blur));
+  background: var(--color-header-bg);
+  border-bottom: var(--size-border-width) solid var(--color-header-border);
 }
 
 .header-inner {
-  min-height: 74px;
+  min-height: var(--size-header-min-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--space-13);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  font-family: "Bricolage Grotesque", "Verdana", sans-serif;
-  font-weight: 800;
+  gap: var(--space-8);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-extrabold);
 }
 
 .brand-mark {
-  inline-size: 2.2rem;
-  block-size: 2.2rem;
-  border-radius: 0.75rem;
-  background: linear-gradient(160deg, var(--color-accent), #ffad6f);
-  color: #1f1a17;
+  inline-size: var(--size-brand-mark);
+  block-size: var(--size-brand-mark);
+  border-radius: var(--radius-brand-mark);
+  background: var(--gradient-brand-mark);
+  color: var(--color-ink);
   display: inline-grid;
   place-items: center;
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
 }
 
 .brand-text {
-  font-size: 1.15rem;
+  font-size: var(--font-size-xl);
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: var(--space-15);
 }
 
 .main-nav a {
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
 .main-nav a[aria-current="page"] {
@@ -56,10 +56,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.62rem 1rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-weight: 700;
+  padding: var(--space-6) var(--space-13);
+  border-radius: var(--radius-pill);
+  border: var(--size-border-width) solid transparent;
+  font-weight: var(--font-weight-bold);
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
   cursor: pointer;
 }
@@ -70,8 +70,8 @@
 
 .btn-primary {
   background: var(--color-brand);
-  color: #f8fffd;
-  box-shadow: 0 8px 18px rgba(13, 106, 99, 0.24);
+  color: var(--color-on-brand);
+  box-shadow: var(--shadow-brand);
 }
 
 .btn-primary:hover {
@@ -80,13 +80,13 @@
 
 .btn-accent {
   background: var(--color-accent);
-  color: #2d1d11;
-  box-shadow: 0 8px 20px rgba(216, 94, 21, 0.24);
+  color: var(--color-on-accent);
+  box-shadow: var(--shadow-accent);
 }
 
 .btn-accent:hover {
   background: var(--color-accent-strong);
-  color: #fff5ef;
+  color: var(--color-on-accent-hover);
 }
 
 .btn-outline {
@@ -96,18 +96,18 @@
 }
 
 .btn-outline:hover {
-  background: rgba(13, 106, 99, 0.08);
+  background: var(--overlay-brand-hover);
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.1rem;
+  gap: var(--space-14);
 }
 
 .vehicle-card {
   background: var(--color-surface);
-  border: 1px solid rgba(223, 209, 196, 0.9);
+  border: var(--size-border-width) solid var(--color-border-soft);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
@@ -127,37 +127,37 @@
 }
 
 .card-content {
-  padding: 1rem;
+  padding: var(--space-13);
   display: grid;
-  gap: 0.55rem;
+  gap: var(--space-5);
 }
 
 .card-content p {
   color: var(--color-muted);
-  font-size: 0.95rem;
+  font-size: var(--font-size-md);
 }
 
 .card-content strong {
-  font-size: 1.08rem;
+  font-size: var(--font-size-lg);
 }
 
 .site-footer {
-  border-top: 1px solid rgba(223, 209, 196, 0.9);
-  background: rgba(247, 239, 230, 0.94);
-  margin-top: 1rem;
+  border-top: var(--size-border-width) solid var(--color-border-soft);
+  background: var(--color-footer-bg);
+  margin-top: var(--space-13);
 }
 
 .footer-inner {
-  min-height: 140px;
+  min-height: var(--size-footer-min-height);
   display: grid;
   align-items: center;
-  gap: 0.9rem;
+  gap: var(--space-12);
   grid-template-columns: 2fr 1fr;
-  padding: 1rem 0;
+  padding: var(--space-13) 0;
 }
 
 .footer-title {
-  font-size: 1.15rem;
+  font-size: var(--font-size-xl);
 }
 
 .footer-inner p,
@@ -167,14 +167,14 @@
 
 .footer-inner nav ul {
   display: grid;
-  gap: 0.45rem;
+  gap: var(--space-3);
 }
 
 @media (max-width: 800px) {
   .header-inner {
     flex-direction: column;
     justify-content: center;
-    padding: 0.65rem 0;
+    padding: var(--space-7) 0;
   }
 
   .main-nav ul {

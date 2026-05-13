@@ -1,27 +1,27 @@
 .container {
-  width: min(calc(100% - 2rem), var(--container));
+  width: min(calc(100% - var(--layout-container-gutter)), var(--container));
   margin-inline: auto;
 }
 
 .section {
-  padding: 2.4rem 0;
+  padding: var(--space-19) 0;
 }
 
 .section-header {
-  margin-bottom: 1.4rem;
+  margin-bottom: var(--space-16);
 }
 
 .section-header p {
   color: var(--color-muted);
-  margin-top: 0.35rem;
+  margin-top: var(--space-1);
 }
 
 .page-main {
-  padding-bottom: 2rem;
+  padding-bottom: var(--space-17);
 }
 
 @media (max-width: 800px) {
   .section {
-    padding: 2rem 0;
+    padding: var(--space-17) 0;
   }
 }

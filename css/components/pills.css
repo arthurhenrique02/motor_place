@@ -1,17 +1,17 @@
 .category-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: var(--space-7);
 }
 
 .category-list a {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
+  padding: var(--space-4) var(--space-11);
+  border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
-  background: rgba(255, 253, 248, 0.85);
-  font-weight: 600;
+  background: var(--overlay-surface-soft);
+  font-weight: var(--font-weight-semibold);
 }
 
 .category-list a:hover {

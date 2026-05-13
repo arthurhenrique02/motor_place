@@ -1,0 +1,41 @@
+:root {
+  /* Primitives (uso interno) */
+  --_color-sand-100: #f4efe8;
+  --_color-sand-150: #f9f4ee;
+  --_color-sand-200: #efe6dc;
+  --_color-sand-250: #f7efe6;
+  --_color-ivory-50: #fffdf8;
+  --_color-white: #fff;
+  --_color-ink-900: #1f1a17;
+  --_color-ink-800: #2d1d11;
+  --_color-stone-700: #5f554c;
+  --_color-brand-500: #0d6a63;
+  --_color-brand-700: #084b46;
+  --_color-accent-500: #ff7b2c;
+  --_color-accent-400: #ffad6f;
+  --_color-accent-700: #d85e15;
+  --_color-success-500: #2e7d32;
+  --_color-success-700: #1b5e20;
+  --_color-border-300: #dfd1c4;
+  --_color-on-brand: #f8fffd;
+  --_color-on-accent: #2d1d11;
+  --_color-on-accent-hover: #fff5ef;
+
+  --_overlay-accent-soft: rgba(255, 123, 44, 0.16);
+  --_overlay-brand-soft: rgba(13, 106, 99, 0.2);
+  --_overlay-brand-hover: rgba(13, 106, 99, 0.08);
+  --_overlay-surface-soft: rgba(255, 253, 248, 0.85);
+  --_overlay-surface: rgba(255, 253, 248, 0.9);
+  --_overlay-surface-strong: rgba(255, 253, 248, 0.98);
+  --_overlay-header: rgba(249, 244, 238, 0.9);
+  --_overlay-footer: rgba(247, 239, 230, 0.94);
+  --_border-soft: rgba(223, 209, 196, 0.7);
+  --_border-mid: rgba(223, 209, 196, 0.9);
+  --_border-strong: rgba(223, 209, 196, 0.95);
+  --_focus-ring: rgba(13, 106, 99, 0.35);
+
+  --_shadow-soft: 0 10px 30px rgba(31, 26, 23, 0.08);
+  --_shadow-brand: 0 8px 18px rgba(13, 106, 99, 0.24);
+  --_shadow-accent: 0 8px 20px rgba(216, 94, 21, 0.24);
+  --_shadow-floating: 0 12px 30px rgba(31, 26, 23, 0.12);
+}

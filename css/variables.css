@@ -1,26 +1,7 @@
-:root {
-  --color-bg: #f4efe8;
-  --color-surface: #fffdf8;
-  --color-ink: #1f1a17;
-  --color-muted: #5f554c;
-  --color-brand: #0d6a63;
-  --color-brand-strong: #084b46;
-  --color-accent: #ff7b2c;
-  --color-accent-strong: #d85e15;
-  --color-success: #2e7d32;
-  --color-success-strong: #1b5e20;
-  --color-border: #dfd1c4;
+/* Design Tokens Entry Point */
+@import url("./tokens/primitives.css");
+@import url("./tokens/semantic.css");
+@import url("./tokens/spacing.css");
+@import url("./tokens/typography.css");
 
-  --font-family-base: "Sora", "Trebuchet MS", sans-serif;
-  --font-family-heading: "Bricolage Grotesque", "Verdana", sans-serif;
-  --font-size-base: 1rem;
-  --line-height-base: 1.6;
-  --line-height-heading: 1.2;
 
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --shadow-soft: 0 10px 30px rgba(31, 26, 23, 0.08);
-
-  --container: 1120px;
-}

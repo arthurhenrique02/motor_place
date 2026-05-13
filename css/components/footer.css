@@ -1,20 +1,20 @@
 .site-footer {
-  border-top: 1px solid rgba(223, 209, 196, 0.9);
-  background: rgba(247, 239, 230, 0.94);
-  margin-top: 1rem;
+  border-top: 1px solid var(--color-border-soft);
+  background: var(--color-footer-bg);
+  margin-top: var(--space-13);
 }
 
 .footer-inner {
-  min-height: 140px;
+  min-height: var(--size-footer-min-height);
   display: grid;
   align-items: center;
-  gap: 0.9rem;
+  gap: var(--space-12);
   grid-template-columns: 2fr 1fr;
-  padding: 1rem 0;
+  padding: var(--space-13) 0;
 }
 
 .footer-title {
-  font-size: 1.15rem;
+  font-size: var(--font-size-xl);
 }
 
 .footer-inner p,
@@ -24,7 +24,7 @@
 
 .footer-inner nav ul {
   display: grid;
-  gap: 0.45rem;
+  gap: var(--space-3);
 }
 
 @media (max-width: 800px) {

@@ -1,0 +1,41 @@
+:root {
+  /* Primitives (uso interno) */
+  --_font-family-base: "Sora", "Trebuchet MS", sans-serif;
+  --_font-family-heading: "Bricolage Grotesque", "Verdana", sans-serif;
+
+  --_font-size-xs: 0.8rem;
+  --_font-size-sm: 0.85rem;
+  --_font-size-md: 0.95rem;
+  --_font-size-base: 1rem;
+  --_font-size-lg: 1.08rem;
+  --_font-size-xl: 1.15rem;
+
+  --_font-weight-semibold: 600;
+  --_font-weight-bold: 700;
+  --_font-weight-extrabold: 800;
+
+  --_line-height-base: 1.6;
+  --_line-height-heading: 1.2;
+
+  --_letter-spacing-eyebrow: 0.08em;
+
+  /* Semantic tokens (uso no app) */
+  --font-family-base: var(--_font-family-base);
+  --font-family-heading: var(--_font-family-heading);
+
+  --font-size-xs: var(--_font-size-xs);
+  --font-size-sm: var(--_font-size-sm);
+  --font-size-md: var(--_font-size-md);
+  --font-size-base: var(--_font-size-base);
+  --font-size-lg: var(--_font-size-lg);
+  --font-size-xl: var(--_font-size-xl);
+
+  --font-weight-semibold: var(--_font-weight-semibold);
+  --font-weight-bold: var(--_font-weight-bold);
+  --font-weight-extrabold: var(--_font-weight-extrabold);
+
+  --line-height-base: var(--_line-height-base);
+  --line-height-heading: var(--_line-height-heading);
+
+  --letter-spacing-eyebrow: var(--_letter-spacing-eyebrow);
+}

@@ -1,0 +1,101 @@
+:root {
+  /* Primitives (uso interno) */
+  --_space-1: 0.35rem;
+  --_space-2: 0.4rem;
+  --_space-3: 0.45rem;
+  --_space-4: 0.5rem;
+  --_space-5: 0.55rem;
+  --_space-6: 0.62rem;
+  --_space-7: 0.65rem;
+  --_space-8: 0.7rem;
+  --_space-9: 0.75rem;
+  --_space-10: 0.8rem;
+  --_space-11: 0.85rem;
+  --_space-12: 0.9rem;
+  --_space-13: 1rem;
+  --_space-14: 1.1rem;
+  --_space-15: 1.2rem;
+  --_space-16: 1.4rem;
+  --_space-17: 2rem;
+  --_space-18: 2.2rem;
+  --_space-19: 2.4rem;
+  --_space-20: 3rem;
+
+  --_radius-sm: 10px;
+  --_radius-md: 16px;
+  --_radius-lg: 24px;
+  --_radius-pill: 999px;
+
+  --_size-header-min-height: 74px;
+  --_size-footer-min-height: 140px;
+  --_size-brand-mark: 2.2rem;
+  --_size-nav-toggle: 2.6rem;
+  --_size-nav-bar-height: 3px;
+  --_size-menu-max-width: 260px;
+  --_size-border-width: 1px;
+  --_size-outline-width: 3px;
+  --_size-outline-offset: 2px;
+  --_size-backdrop-blur: 10px;
+
+  --_radius-brand-mark: 0.75rem;
+  --_radius-nav-toggle: 0.85rem;
+  --_radius-nav-link: 0.9rem;
+
+  --_breakpoint-mobile: 800px;
+  --_breakpoint-tablet: 980px;
+  --_breakpoint-mobile-sm: 680px;
+
+  --_layout-container-gutter: 2rem;
+
+  --_container-max: 1120px;
+
+  /* Semantic tokens (uso no app) */
+  --space-1: var(--_space-1);
+  --space-2: var(--_space-2);
+  --space-3: var(--_space-3);
+  --space-4: var(--_space-4);
+  --space-5: var(--_space-5);
+  --space-6: var(--_space-6);
+  --space-7: var(--_space-7);
+  --space-8: var(--_space-8);
+  --space-9: var(--_space-9);
+  --space-10: var(--_space-10);
+  --space-11: var(--_space-11);
+  --space-12: var(--_space-12);
+  --space-13: var(--_space-13);
+  --space-14: var(--_space-14);
+  --space-15: var(--_space-15);
+  --space-16: var(--_space-16);
+  --space-17: var(--_space-17);
+  --space-18: var(--_space-18);
+  --space-19: var(--_space-19);
+  --space-20: var(--_space-20);
+
+  --radius-sm: var(--_radius-sm);
+  --radius-md: var(--_radius-md);
+  --radius-lg: var(--_radius-lg);
+  --radius-pill: var(--_radius-pill);
+
+  --size-header-min-height: var(--_size-header-min-height);
+  --size-footer-min-height: var(--_size-footer-min-height);
+  --size-brand-mark: var(--_size-brand-mark);
+  --size-nav-toggle: var(--_size-nav-toggle);
+  --size-nav-bar-height: var(--_size-nav-bar-height);
+  --size-menu-max-width: var(--_size-menu-max-width);
+  --size-border-width: var(--_size-border-width);
+  --size-outline-width: var(--_size-outline-width);
+  --size-outline-offset: var(--_size-outline-offset);
+  --size-backdrop-blur: var(--_size-backdrop-blur);
+
+  --radius-brand-mark: var(--_radius-brand-mark);
+  --radius-nav-toggle: var(--_radius-nav-toggle);
+  --radius-nav-link: var(--_radius-nav-link);
+
+  --breakpoint-mobile: var(--_breakpoint-mobile);
+  --breakpoint-tablet: var(--_breakpoint-tablet);
+  --breakpoint-mobile-sm: var(--_breakpoint-mobile-sm);
+
+  --layout-container-gutter: var(--_layout-container-gutter);
+
+  --container: var(--_container-max);
+}

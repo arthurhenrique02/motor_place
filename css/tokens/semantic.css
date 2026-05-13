@@ -1,0 +1,46 @@
+:root {
+  /* Semantic tokens (uso por componentes) */
+  --color-bg: var(--_color-sand-100);
+  --color-surface: var(--_color-ivory-50);
+  --color-surface-strong: var(--_color-white);
+  --color-ink: var(--_color-ink-900);
+  --color-muted: var(--_color-stone-700);
+  --color-brand: var(--_color-brand-500);
+  --color-brand-strong: var(--_color-brand-700);
+  --color-accent: var(--_color-accent-500);
+  --color-accent-strong: var(--_color-accent-700);
+  --color-success: var(--_color-success-500);
+  --color-success-strong: var(--_color-success-700);
+  --color-border: var(--_color-border-300);
+
+  --color-header-bg: var(--_overlay-header);
+  --color-header-border: var(--_border-soft);
+  --color-footer-bg: var(--_overlay-footer);
+  --color-border-soft: var(--_border-mid);
+  --color-border-strong: var(--_border-strong);
+  --color-brand-mark-end: var(--_color-accent-400);
+
+  --color-on-brand: var(--_color-on-brand);
+  --color-on-accent: var(--_color-on-accent);
+  --color-on-accent-hover: var(--_color-on-accent-hover);
+  --color-input-bg: var(--_color-white);
+
+  --overlay-surface-soft: var(--_overlay-surface-soft);
+  --overlay-surface: var(--_overlay-surface);
+  --overlay-surface-strong: var(--_overlay-surface-strong);
+  --overlay-brand-soft: var(--_overlay-brand-soft);
+  --overlay-brand-hover: var(--_overlay-brand-hover);
+  --focus-ring: var(--_focus-ring);
+
+  --gradient-page:
+    radial-gradient(circle at 8% 8%, var(--_overlay-accent-soft), transparent 32%),
+    radial-gradient(circle at 92% 20%, var(--_overlay-brand-soft), transparent 28%),
+    linear-gradient(180deg, var(--_color-sand-150) 0%, var(--_color-sand-200) 100%);
+  --gradient-brand-mark: linear-gradient(160deg, var(--color-accent), var(--color-brand-mark-end));
+
+  --shadow-soft: var(--_shadow-soft);
+  --shadow-brand: var(--_shadow-brand);
+  --shadow-accent: var(--_shadow-accent);
+  --shadow-floating: var(--_shadow-floating);
+  --max-width-card-img: 100%
+}

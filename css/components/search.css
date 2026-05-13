@@ -1,15 +1,15 @@
 .search-form {
   display: grid;
-  gap: 0.55rem;
+  gap: var(--space-5);
 }
 
 .search-form label {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .search-row {
   display: flex;
-  gap: 0.55rem;
+  gap: var(--space-5);
 }
 
 .search-row input {
