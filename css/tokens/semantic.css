@@ -1,3 +1,14 @@
+/*
+ * semantic.css — Camada de tokens de cor com intenção semântica.
+ *
+ * Convenção de nomenclatura:
+ *   --<categoria>-<papel>: var(--_<primitivo>)
+ *
+ * Cada token descreve PARA QUE o valor é usado (ex: --color-brand,
+ * --color-surface, --shadow-soft), não qual é o valor em si. Os componentes
+ * devem referenciar apenas estes tokens — nunca os primitivos com prefixo "_".
+ * Para tokens de espaçamento e tipografia, ver spacing.css e typography.css.
+ */
 :root {
   /* Semantic tokens (uso por componentes) */
   --color-bg: var(--_color-sand-100);

@@ -1,3 +1,17 @@
+/*
+ * typography.css — Tokens de tipografia e espaçamento de texto.
+ *
+ * Convenção de nomenclatura:
+ *   Primitivos:  --_<categoria>-<escala>: <valor>   (prefixo "_" = uso interno)
+ *   Semânticos:  --<categoria>-<escala>: var(--_...) (expostos para componentes)
+ *
+ * Categorias disponíveis:
+ *   --font-family-*      Famílias tipográficas (base, heading)
+ *   --font-size-*        Escala de tamanhos (xs, sm, md, base, lg, xl)
+ *   --font-weight-*      Pesos (semibold, bold, extrabold)
+ *   --line-height-*      Alturas de linha (base, heading)
+ *   --letter-spacing-*   Espaçamento entre letras por uso semântico
+ */
 :root {
   /* Primitives (uso interno) */
   --_font-family-base: "Sora", "Trebuchet MS", sans-serif;

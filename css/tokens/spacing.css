@@ -1,3 +1,18 @@
+/*
+ * spacing.css — Tokens de espaçamento, tamanho, raio e layout.
+ *
+ * Convenção de nomenclatura:
+ *   Primitivos:  --_<categoria>-<escala>: <valor>   (prefixo "_" = uso interno)
+ *   Semânticos:  --<categoria>-<escala>: var(--_...) (expostos para componentes)
+ *
+ * Categorias disponíveis:
+ *   --space-*          Escala de espaçamento (padding, gap, margin)
+ *   --radius-*         Raios de borda (sm, md, lg, pill + específicos por componente)
+ *   --size-*           Tamanhos fixos de componentes e elementos de UI
+ *   --breakpoint-*     Pontos de quebra para media queries
+ *   --layout-*         Valores estruturais de layout (gutter, container)
+ *   --container        Largura máxima do container principal
+ */
 :root {
   /* Primitives (uso interno) */
   --_space-1: 0.35rem;

@@ -1,3 +1,15 @@
+/*
+ * primitives.css — Camada de valores brutos do design system.
+ *
+ * Convenção de nomenclatura:
+ *   --_<categoria>-<escala>: <valor>
+ *
+ * O prefixo "_" indica uso interno: estas variáveis NÃO devem ser
+ * referenciadas diretamente nos componentes. Sempre consuma os tokens
+ * semânticos definidos em semantic.css, spacing.css e typography.css,
+ * que mapeiam estes primitivos para intenções de design (ex: --color-brand,
+ * --space-13, --font-size-md).
+ */
 :root {
   /* Primitives (uso interno) */
   --_color-sand-100: #f4efe8;
