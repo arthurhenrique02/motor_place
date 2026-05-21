@@ -16,7 +16,7 @@
   flex: 1;
 }
 
-@media (max-width: 680px) {
+@container (max-width: 420px) {
   .search-row {
     flex-direction: column;
   }

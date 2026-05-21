@@ -67,6 +67,10 @@
   padding: var(--space-15);
 }
 
+.hero-search {
+  container-type: inline-size;
+}
+
 .hero-copy h1 {
   font-size: clamp(1.8rem, 4.2vw, 3.1rem);
   margin: var(--space-5) 0 var(--space-10);
