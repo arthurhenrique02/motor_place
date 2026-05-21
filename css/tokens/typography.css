@@ -12,13 +12,17 @@
  *   --line-height-*      Alturas de linha (base, heading)
  *   --letter-spacing-*   Espaçamento entre letras por uso semântico
  */
+html {
+  font-size: clamp(16px, 1.1vw, 20px);
+}
+
 :root {
   /* Primitives (uso interno) */
   --_font-family-base: "Sora", "Trebuchet MS", sans-serif;
   --_font-family-heading: "Bricolage Grotesque", "Verdana", sans-serif;
 
   --_font-size-xs: 0.8rem;
-  --_font-size-sm: 0.85rem;
+  --_font-size-sm: 0.88rem;
   --_font-size-md: 0.95rem;
   --_font-size-base: 1rem;
   --_font-size-lg: 1.08rem;

@@ -14,7 +14,9 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.category-list a:hover {
-  border-color: var(--color-brand);
-  color: var(--color-brand);
+@media (hover: hover) {
+  .category-list a:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+  }
 }

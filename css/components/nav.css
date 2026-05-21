@@ -81,7 +81,7 @@
 }
 
 /* MOBILE */
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .header-inner {
     min-height: var(--size-header-min-height);
     flex-direction: row;

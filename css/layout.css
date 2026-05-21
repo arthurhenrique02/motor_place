@@ -14,14 +14,21 @@
 .section-header p {
   color: var(--color-muted);
   margin-top: var(--space-1);
+  max-width: 75ch;
 }
 
 .page-main {
   padding-bottom: var(--space-17);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .section {
     padding: var(--space-17) 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1280px;
   }
 }

@@ -65,6 +65,8 @@ textarea,
 select {
   padding: var(--space-9) var(--space-12);
   background: var(--color-input-bg);
+  /* garante >= 16px em viewports estreitos para não disparar zoom no iOS */
+  font-size: max(1rem, 16px);
 }
 
 input:focus-visible,

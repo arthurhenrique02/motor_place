@@ -64,18 +64,10 @@
   cursor: pointer;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-}
-
 .btn-primary {
   background: var(--color-brand);
   color: var(--color-on-brand);
   box-shadow: var(--shadow-brand);
-}
-
-.btn-primary:hover {
-  background: var(--color-brand-strong);
 }
 
 .btn-accent {
@@ -84,19 +76,29 @@
   box-shadow: var(--shadow-accent);
 }
 
-.btn-accent:hover {
-  background: var(--color-accent-strong);
-  color: var(--color-on-accent-hover);
-}
-
 .btn-outline {
   border-color: var(--color-brand);
   color: var(--color-brand);
   background: transparent;
 }
 
-.btn-outline:hover {
-  background: var(--overlay-brand-hover);
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-brand-strong);
+  }
+
+  .btn-accent:hover {
+    background: var(--color-accent-strong);
+    color: var(--color-on-accent-hover);
+  }
+
+  .btn-outline:hover {
+    background: var(--overlay-brand-hover);
+  }
 }
 
 .card-grid {
@@ -135,6 +137,7 @@
 .card-content p {
   color: var(--color-muted);
   font-size: var(--font-size-md);
+  max-width: 75ch;
 }
 
 .card-content strong {
@@ -165,12 +168,16 @@
   color: var(--color-muted);
 }
 
+.footer-inner p {
+  max-width: 75ch;
+}
+
 .footer-inner nav ul {
   display: grid;
   gap: var(--space-3);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
     justify-content: center;
