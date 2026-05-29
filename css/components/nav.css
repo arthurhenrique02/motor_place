@@ -23,6 +23,11 @@
   font-weight: var(--font-weight-extrabold);
   flex-shrink: 0;
 }
+.brand img {
+  vertical-align: middle;   /* centraliza verticalmente com o texto */
+  margin-right: 0.5rem;     /* espaço entre o logo e o texto */
+  border-radius: 8px;       /* opcional, bordas arredondadas */
+}
 
 .brand-mark {
   inline-size: var(--size-brand-mark);
@@ -36,7 +41,13 @@
 }
 
 .brand-text {
-  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary); /* cor padrão do texto */
+}
+
+.brand-highlight {
+  color: var(--color-logo-orange); /* usa o token do logo */
 }
 
 .main-nav {
