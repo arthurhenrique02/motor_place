@@ -14,17 +14,19 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components/card.css" />
-    <link rel="stylesheet" href="css/components/footer.css" />
-    <link rel="stylesheet" href="css/components/hero.css" />
-    <link rel="stylesheet" href="css/components/nav.css" />
-    <link rel="stylesheet" href="css/components/pills.css" />
-    <link rel="stylesheet" href="css/components/search.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components/card.css" />
+    <link rel="stylesheet" href="../css/components/footer.css" />
+    <link rel="stylesheet" href="../css/components/hero.css" />
+    <link rel="stylesheet" href="../css/components/nav.css" />
+    <link rel="stylesheet" href="../css/components/pills.css" />
+    <link rel="stylesheet" href="../css/components/search.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/components/add-car-button.css" />
+    <link rel="stylesheet" href="../css/components/add-car-form.css" />
   </head>
   <body>
     <header class="site-header">
@@ -114,7 +116,7 @@
           <div class="card-grid" role="list" aria-label="Veículos em destaque">
             <article class="vehicle-card" role="listitem">
               <figure>
-                <img src="/uploads/carro1.jpg" alt="Sedan prata em destaque" loading="lazy" />
+                <img src="../uploads/carro1.jpg" alt="Sedan prata em destaque" loading="lazy" />
               </figure>
               <div class="card-content">
                 <h3>Honda Civic Touring 2022</h3>
@@ -126,7 +128,7 @@
 
             <article class="vehicle-card" role="listitem">
               <figure>
-                <img src="/uploads/carro2.jpeg" alt="SUV branca em destaque" loading="lazy" />
+                <img src="../uploads/carro2.jpeg" alt="SUV branca em destaque" loading="lazy" />
               </figure>
               <div class="card-content">
                 <h3>Jeep Compass Limited 2021</h3>
@@ -138,7 +140,7 @@
 
             <article class="vehicle-card" role="listitem">
               <figure>
-                <img src="/uploads/carro3.jpg" alt="Hatch vermelho em destaque" loading="lazy" />
+                <img src="../uploads/carro3.jpg" alt="Hatch vermelho em destaque" loading="lazy" />
               </figure>
               <div class="card-content">
                 <h3>Volkswagen Polo Highline 2023</h3>
@@ -148,11 +150,16 @@
               </div>
             </article>
           </div>
+
+          <!-- Botão para adicionar novo carro -->
+          <div class="add-car-container">
+            <button class="btn-primary" onclick="openAddCarPopup()">Adicionar Novo Carro</button>
+          </div>
+
         </div>
       </section>
     </main>
 
-    <!-- Rodapé -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <section>
@@ -171,5 +178,39 @@
 
     <!--script do hambuguer -->
     <script src="js/Hambuger.js"></script>
+
+    <!--script para carregar carros adicionados via localStorage-->
+    <script>
+      const cardGrid = document.querySelector(".card-grid");
+      const storedCars = JSON.parse(localStorage.getItem("cars")) || [];
+
+      storedCars.forEach(car => {
+        const cardHTML = `
+          <article class="vehicle-card" role="listitem">
+            <figure>
+              <img src="${car.img}" alt="${car.name}" loading="lazy" />
+            </figure>
+            <div class="card-content">
+              <h3>${car.name}</h3>
+              <p>${car.type} • ${car.km} km • ${car.fuel}</p>
+              <strong>R$ ${car.price}</strong>
+              <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+            </div>
+          </article>
+        `;
+        cardGrid.insertAdjacentHTML("beforeend", cardHTML);
+      });
+    </script>
+
+    <!-- Função JS para abrir popup -->
+    <script>
+      function openAddCarPopup() {
+        window.open(
+          'add-car.html', 
+          'Adicionar Carro', 
+          'width=500,height=600,resizable=yes,scrollbars=yes,top=100,left=100'
+        );
+      }
+    </script>
   </body>
 </html>

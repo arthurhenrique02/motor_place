@@ -1,0 +1,86 @@
+/* add-car-form.css */
+
+/* Container do formulário */
+.add-car-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-9);
+  padding: var(--space-17);
+  max-width: 450px;
+  width: 90%;
+  margin: var(--space-17) auto;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-floating);
+  font-family: var(--font-family-base);
+}
+
+/* Labels */
+.add-car-form-container label {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--color-ink);
+  margin-bottom: var(--space-1);
+}
+
+/* Inputs e selects */
+.add-car-form-container input,
+.add-car-form-container select {
+  padding: var(--space-9) var(--space-12);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-sm);
+  border: var(--size-border-width) solid var(--color-border);
+  background-color: var(--color-input-bg);
+  color: var(--color-ink);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-car-form-container input:focus-visible,
+.add-car-form-container select:focus-visible {
+  outline: var(--size-outline-width) solid var(--focus-ring);
+  outline-offset: var(--size-outline-offset);
+}
+
+/* Botão dentro do formulário */
+.add-car-form-container button.btn-primary {
+  margin-top: var(--space-9);
+  padding: var(--space-9) var(--space-12);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand);
+  color: var(--color-on-brand);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.add-car-form-container button.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-brand);
+  background-color: var(--color-brand-strong);
+}
+
+.add-car-form-container button.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-floating);
+  background-color: var(--color-brand-700);
+}
+
+/* Responsividade do formulário */
+@media (max-width: 500px) {
+  .add-car-form-container {
+    padding: var(--space-16);
+    width: 95%;
+  }
+
+  .add-car-form-container button.btn-primary {
+    width: 100%;
+    font-size: var(--font-size-md);
+    padding: var(--space-8) var(--space-10);
+  }
+}

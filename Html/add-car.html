@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Carro | MotorPlace</title>
+
+  <!-- CSS base e tokens -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/primitives.css">
+  <link rel="stylesheet" href="../css/semantic.css">
+  <link rel="stylesheet" href="../css/spacing.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+
+  <!-- CSS do componente Add Car -->
+  <link rel="stylesheet" href="../css/components/add-car-form.css">
+  <link rel="stylesheet" href="../css/components/add-car-button.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
+        <span class="brand-mark" aria-hidden="true">MP</span>
+        <span class="brand-text">MotorPlace</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Adicionar Novo Carro</h2>
+
+        <!-- Formulário -->
+        <form id="add-car-form" class="add-car-form-container">
+          <div class="form-group">
+            <label for="car-name">Nome do carro</label>
+            <input type="text" id="car-name" name="carName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="car-type">Tipo</label>
+            <select id="car-type" name="carType" required>
+              <option value="">Selecione</option>
+              <option value="SUV">SUV</option>
+              <option value="Sedan">Sedan</option>
+              <option value="Hatch">Hatch</option>
+              <option value="Pickup">Pickup</option>
+              <option value="Elétrico">Elétrico</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="car-km">Quilometragem</label>
+            <input type="number" id="car-km" name="carKm" required>
+          </div>
+
+          <div class="form-group">
+            <label for="car-fuel">Combustível</label>
+            <input type="text" id="car-fuel" name="carFuel" required>
+          </div>
+
+          <div class="form-group">
+            <label for="car-price">Preço (R$)</label>
+            <input type="number" id="car-price" name="carPrice" step="0.01" required>
+          </div>
+
+          <div class="form-group">
+            <label for="car-img">URL da Imagem</label>
+            <input type="text" id="car-img" name="carImg" required>
+          </div>
+
+          <button type="submit" class="btn-primary">Adicionar Carro</button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Script do AddCar.js -->
+  <script src="../java/AddCar.js"></script>
+</body>
+</html>
