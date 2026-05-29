@@ -1,17 +1,18 @@
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* sempre 3 cards por linha */
   gap: var(--space-14);
 }
 
 .vehicle-card {
+  display: flex;
+  flex-direction: column;
   background: var(--color-surface);
   border: var(--size-border-width) solid var(--color-border-soft);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  display: flex;
-  flex-direction: column;
+  word-break: break-word; /* evita overflow de texto */
 }
 
 .vehicle-card figure {
@@ -38,4 +39,24 @@
 
 .card-content strong {
   font-size: var(--font-size-lg);
+}
+
+/* Botão Detalhes em breve dentro do card sem quebra de linha */
+.card-content a.btn-outline {
+  white-space: nowrap;    /* não quebra linha */
+  overflow: hidden;       /* esconde excesso de texto */
+  text-overflow: ellipsis; /* adiciona "..." se necessário */
+}
+
+/* Responsividade da grid de veículos */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards em tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr; /* 1 card em celular */
+  }
 }

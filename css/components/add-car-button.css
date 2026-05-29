@@ -1,5 +1,3 @@
-/* add-car-button.css */
-
 /* Container centralizado abaixo dos cards */
 .add-car-container {
   display: flex;
@@ -21,7 +19,7 @@
   cursor: pointer;
   font-family: var(--font-family-base);
   box-shadow: var(--shadow-soft);
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
   white-space: nowrap;
 }
 
@@ -46,4 +44,11 @@
     padding: var(--space-8) var(--space-10);
     font-size: var(--font-size-md);
   }
+}
+
+/* Botão “Detalhes em breve” dentro do card sem quebra de linha */
+.card-content a.btn-outline {
+  white-space: nowrap;   /* impede quebra de linha */
+  overflow: hidden;      /* corta caso ultrapasse */
+  text-overflow: ellipsis; /* adiciona "..." se o texto for maior que o botão */
 }
