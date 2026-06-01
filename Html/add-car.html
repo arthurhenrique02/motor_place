@@ -20,15 +20,19 @@
   <link rel="stylesheet" href="../css/components/add-car-form.css">
   <link rel="stylesheet" href="../css/components/add-car-button.css">
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
-      <img src="../uploads/logo.png" 
-          alt="Logo MotorPlace" 
-          width="50" height="50" />
-      <span class="brand-text">MotorPlace</span>
-    </a>
+        <img
+          src="../uploads/logo.png"
+          alt="Logo MotorPlace"
+          width="50"
+          height="50"
+        />
+        <span class="brand-text">MotorPlace</span>
+      </a>
     </div>
   </header>
 
@@ -41,7 +45,35 @@
         <form id="add-car-form" class="add-car-form-container">
           <div class="form-group">
             <label for="car-name">Nome do carro</label>
-            <input type="text" id="car-name" name="carName" required>
+            <input
+              type="text"
+              id="car-name"
+              name="carName"
+              placeholder="Ex.: Honda Civic Touring 2022"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="car-brand">Marca</label>
+            <input
+              type="text"
+              id="car-brand"
+              name="carBrand"
+              placeholder="Ex.: Honda"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="car-model">Modelo</label>
+            <input
+              type="text"
+              id="car-model"
+              name="carModel"
+              placeholder="Ex.: Civic Touring"
+              required
+            />
           </div>
 
           <div class="form-group">
@@ -57,28 +89,106 @@
           </div>
 
           <div class="form-group">
+            <label for="car-year">Ano</label>
+            <input
+              type="number"
+              id="car-year"
+              name="carYear"
+              placeholder="Ex.: 2022"
+              required
+            />
+          </div>
+
+          <div class="form-group">
             <label for="car-km">Quilometragem</label>
-            <input type="number" id="car-km" name="carKm" required>
+            <input
+              type="number"
+              id="car-km"
+              name="carKm"
+              placeholder="Ex.: 32000"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="car-fuel">Combustível</label>
-            <input type="text" id="car-fuel" name="carFuel" required>
+            <input
+              type="text"
+              id="car-fuel"
+              name="carFuel"
+              placeholder="Ex.: Flex, Diesel, Gasolina"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="car-transmission">Câmbio</label>
+            <select id="car-transmission" name="carTransmission" required>
+              <option value="">Selecione</option>
+              <option value="Manual">Manual</option>
+              <option value="Automático">Automático</option>
+              <option value="CVT">CVT</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="car-color">Cor</label>
+            <input
+              type="text"
+              id="car-color"
+              name="carColor"
+              placeholder="Ex.: Branco"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="car-location">Localização</label>
+            <input
+              type="text"
+              id="car-location"
+              name="carLocation"
+              placeholder="Ex.: João Pessoa - PB"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="car-price">Preço (R$)</label>
-            <input type="number" id="car-price" name="carPrice" step="0.01" required>
+            <input
+              type="number"
+              id="car-price"
+              name="carPrice"
+              step="0.01"
+              placeholder="Ex.: 149900"
+              required
+            />
           </div>
 
           <div class="form-group">
             <label for="car-img">URL da Imagem</label>
-            <input type="text" id="car-img" name="carImg" required>
+            <input
+              type="text"
+              id="car-img"
+              name="carImg"
+              placeholder="../uploads/carro4.jpg"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="car-description">Descrição</label>
+            <textarea
+              id="car-description"
+              name="carDescription"
+              rows="4"
+              placeholder="Descreva o estado do carro, opcionais e diferenciais."
+              required
+            ></textarea>
           </div>
 
           <button type="submit" class="btn-primary">Adicionar Carro</button>
         </form>
-
       </div>
     </section>
   </main>

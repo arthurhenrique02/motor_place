@@ -123,3 +123,16 @@
     height: 9rem;
   }
 }
+
+.best-price-link {
+  display: inline-block;
+  margin-top: var(--space-6);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand);
+}
+
+.best-price-link:hover {
+  color: var(--color-brand-strong);
+}

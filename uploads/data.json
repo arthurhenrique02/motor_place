@@ -1,0 +1,5 @@
+[
+  { "nome": "Honda Civic 2022", "preco": 149900, "imagem": "carro1.jpg" },
+  { "nome": "Jeep Compass 2021", "preco": 169900, "imagem": "carro2.jpeg" },
+  { "nome": "Volkswagen Polo 2023", "preco": 108500, "imagem": "carro3.jpg" }
+]

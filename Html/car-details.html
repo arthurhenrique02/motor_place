@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Detalhes do Carro | MotorPlace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/primitives.css" />
+    <link rel="stylesheet" href="../css/semantic.css" />
+    <link rel="stylesheet" href="../css/spacing.css" />
+    <link rel="stylesheet" href="../css/typography.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components/nav.css" />
+    <link rel="stylesheet" href="../css/components/footer.css" />
+    <link rel="stylesheet" href="../css/components/card.css" />
+    <link rel="stylesheet" href="../css/components/car-details.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
+          <img
+            src="../uploads/logo.png"
+            alt="Logo MotorPlace"
+            width="50"
+            height="50"
+          />
+
+          <span class="brand-text">
+            Motor<span class="brand-highlight">Place</span>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <ul class="navbar__menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#featured-title">Ofertas</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <a href="index.html" class="details-back-link">← Voltar para ofertas</a>
+
+          <article class="car-details" id="car-details">
+            <!-- O JavaScript vai preencher os detalhes aqui -->
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <section>
+          <h2 class="footer-title">MotorPlace</h2>
+          <p>Conectando pessoas a bons carros com transparência e praticidade.</p>
+        </section>
+
+        <nav aria-label="Links institucionais">
+          <ul>
+            <li><a href="index.html#featured-title">Comprar</a></li>
+            <li><a href="index.html#featured-title">Vender</a></li>
+            <li><a href="index.html#hero-title">Como funciona</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="../js/CarDetails.js"></script>
+  </body>
+</html>

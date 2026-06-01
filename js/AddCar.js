@@ -9,20 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("car-name").value.trim();
-    const type = document.getElementById("car-type").value.trim();
-    const km = document.getElementById("car-km").value.trim();
-    const fuel = document.getElementById("car-fuel").value.trim();
-    const price = document.getElementById("car-price").value.trim();
-    const img = document.getElementById("car-img").value.trim();
-
     const car = {
-      name,
-      type,
-      km,
-      fuel,
-      price,
-      img
+      name: document.getElementById("car-name").value.trim(),
+      brand: document.getElementById("car-brand").value.trim(),
+      model: document.getElementById("car-model").value.trim(),
+      type: document.getElementById("car-type").value.trim(),
+      year: document.getElementById("car-year").value.trim(),
+      km: document.getElementById("car-km").value.trim(),
+      fuel: document.getElementById("car-fuel").value.trim(),
+      transmission: document.getElementById("car-transmission").value.trim(),
+      color: document.getElementById("car-color").value.trim(),
+      location: document.getElementById("car-location").value.trim(),
+      price: document.getElementById("car-price").value.trim(),
+      description: document.getElementById("car-description").value.trim(),
+      img: document.getElementById("car-img").value.trim()
     };
 
     const cars = JSON.parse(localStorage.getItem("cars")) || [];

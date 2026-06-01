@@ -166,8 +166,8 @@
                 <h3>Honda Civic Touring 2022</h3>
                 <p>Sedan • 32.000 km • Flex</p>
                 <strong>R$ 149.900</strong>
-                <a href="#featured-title" class="btn btn-outline">
-                  Detalhes em breve
+                <a href="car-details.html?type=default&id=1" class="btn btn-outline">
+                  Ver detalhes
                 </a>
               </div>
             </article>
@@ -185,8 +185,8 @@
                 <h3>Jeep Compass Limited 2021</h3>
                 <p>SUV • 41.500 km • Diesel</p>
                 <strong>R$ 169.900</strong>
-                <a href="#featured-title" class="btn btn-outline">
-                  Detalhes em breve
+                <a href="car-details.html?type=default&id=2" class="btn btn-outline">
+                  Ver detalhes
                 </a>
               </div>
             </article>
@@ -204,8 +204,8 @@
                 <h3>Volkswagen Polo Highline 2023</h3>
                 <p>Hatch • 12.400 km • Flex</p>
                 <strong>R$ 108.500</strong>
-                <a href="#featured-title" class="btn btn-outline">
-                  Detalhes em breve
+                <a href="car-details.html?type=default&id=3" class="btn btn-outline">
+                  Ver detalhes
                 </a>
               </div>
             </article>
@@ -297,7 +297,7 @@
         });
       }
 
-      function createFeaturedCarCard(car) {
+      function createFeaturedCarCard(car, index) {
         return `
           <article class="vehicle-card" role="listitem">
             <figure>
@@ -308,45 +308,61 @@
               <h3>${car.name}</h3>
               <p>${car.type} • ${car.km} km • ${car.fuel}</p>
               <strong>${formatPrice(car.price)}</strong>
-              <a href="#featured-title" class="btn btn-outline">
-                Detalhes em breve
+              <a href="car-details.html?type=stored&id=${index}" class="btn btn-outline">
+                Ver detalhes
               </a>
             </div>
           </article>
         `;
       }
 
-      function createBestPriceCard(car, index) {
-        const tag = index === 0 ? "Menor preço" : "Boa oportunidade";
+      function createBestPriceCard(car, index, sourceType, sourceIndex) {
+      const tag = index === 0 ? "Menor preço" : "Oferta";
 
-        return `
-          <article class="best-price-card">
-            <figure>
-              <img src="${car.img}" alt="${car.name}" />
-            </figure>
+      return `
+        <article class="best-price-card">
+          <figure>
+            <img src="${car.img}" alt="${car.name}" />
+          </figure>
 
-            <div class="best-price-info">
-              <p class="tag">${tag}</p>
-              <h4>${car.name}</h4>
-              <p>${car.type} • ${car.km} km • ${car.fuel}</p>
-              <strong>${formatPrice(car.price)}</strong>
-            </div>
-          </article>
-        `;
-      }
+          <div class="best-price-info">
+            <p class="tag">${tag}</p>
+            <h4>${car.name}</h4>
+            <p>${car.type} • ${car.km} km • ${car.fuel}</p>
+            <strong>${formatPrice(car.price)}</strong>
+            <a href="car-details.html?type=${sourceType}&id=${sourceIndex}" class="best-price-link">
+              Ver detalhes
+            </a>
+          </div>
+        </article>
+      `;
+    }
 
-      storedCars.forEach(car => {
-        cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car));
+      storedCars.forEach((car, index) => {
+        cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car, index));
       });
 
-      const cheapestCars = [...allCars]
+      const allCarsWithSource = [
+        ...defaultCars.map((car) => ({
+          ...car,
+          sourceType: "default",
+          sourceIndex: car.id
+        })),
+        ...storedCars.map((car, index) => ({
+          ...car,
+          sourceType: "stored",
+          sourceIndex: index
+        }))
+      ];
+
+      const cheapestCars = [...allCarsWithSource]
         .sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price))
         .slice(0, 2);
 
       cheapestCars.forEach((car, index) => {
         bestPriceGrid.insertAdjacentHTML(
           "beforeend",
-          createBestPriceCard(car, index)
+          createBestPriceCard(car, index, car.sourceType, car.sourceIndex)
         );
       });
     </script>
