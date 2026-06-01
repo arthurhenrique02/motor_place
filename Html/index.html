@@ -3,17 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>MotorPlace | Marketplace de Carros</title>
+
     <meta
       name="description"
       content="Encontre carros novos e usados no MotorPlace. Busque por marca, modelo e categoria."
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/base.css" />
@@ -24,20 +29,28 @@
     <link rel="stylesheet" href="../css/components/nav.css" />
     <link rel="stylesheet" href="../css/components/pills.css" />
     <link rel="stylesheet" href="../css/components/search.css" />
+    <link rel="stylesheet" href="../css/components/best-price.css" />
     <link rel="stylesheet" href="../css/utilities.css" />
     <link rel="stylesheet" href="../css/components/add-car-button.css" />
     <link rel="stylesheet" href="../css/components/add-car-form.css" />
   </head>
+
   <body>
     <header class="site-header">
       <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
-      <img src="../uploads/logo.png" 
-          alt="Logo MotorPlace" 
-          width="50" height="50" />
-      <span  class="brand-text">
-    Motor<span class="brand-highlight">Place</span>
-    </a>
+        <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
+          <img
+            src="../uploads/logo.png"
+            alt="Logo MotorPlace"
+            width="50"
+            height="50"
+          />
+
+          <span class="brand-text">
+            Motor<span class="brand-highlight">Place</span>
+          </span>
+        </a>
+
         <nav class="main-nav" aria-label="Navegação principal">
           <button
             class="navbar__toggle"
@@ -54,7 +67,11 @@
           <ul class="navbar__menu" id="menu-principal">
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="#categories-title">Categorias</a></li>
-            <li><a href="#featured-title" class="btn btn-primary">Ofertas em destaque</a></li>
+            <li>
+              <a href="#featured-title" class="btn btn-primary">
+                Ofertas em destaque
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -65,16 +82,21 @@
         <div class="container hero-inner">
           <article class="hero-copy">
             <p class="eyebrow">Marketplace inteligente para carros</p>
-            <h1 id="hero-title">Seu próximo carro está a poucos cliques de distância.</h1>
+
+            <h1 id="hero-title">
+              Seu próximo carro está a poucos cliques de distância.
+            </h1>
+
             <p>
-              Pesquise por marca, modelo ou categoria e encontre ofertas com histórico e
-              especificações completas.
+              Pesquise por marca, modelo ou categoria e encontre ofertas com
+              histórico e especificações completas.
             </p>
           </article>
 
           <aside class="hero-search" aria-label="Busca de veículos">
             <form class="search-form" action="#" method="get">
               <label for="home-search">Buscar marca ou modelo</label>
+
               <div class="search-row">
                 <input
                   id="home-search"
@@ -82,11 +104,24 @@
                   type="search"
                   placeholder="Ex.: Civic, Corolla, SUV"
                 />
+
                 <button type="button" class="btn btn-accent" aria-disabled="true">
                   Busca em breve
                 </button>
               </div>
             </form>
+
+            <!-- Área automática dos carros mais baratos -->
+            <div class="best-price-cars">
+              <div class="best-price-header">
+                <h3>Carros mais baratos</h3>
+                <span>Atualizado automaticamente</span>
+              </div>
+
+              <div class="best-price-grid" id="best-price-grid">
+                <!-- O JavaScript vai inserir aqui os 2 carros mais baratos -->
+              </div>
+            </div>
           </aside>
         </div>
       </section>
@@ -112,52 +147,75 @@
         <div class="container">
           <header class="section-header">
             <h2 id="featured-title">Ofertas em destaque</h2>
-            <a href="#featured-title" class="text-link">Catálogo completo em breve</a>
+            <a href="#featured-title" class="text-link">
+              Catálogo completo em breve
+            </a>
           </header>
 
           <div class="card-grid" role="list" aria-label="Veículos em destaque">
             <article class="vehicle-card" role="listitem">
               <figure>
-                <img src="../uploads/carro1.jpg" alt="Sedan prata em destaque" loading="lazy" />
+                <img
+                  src="../uploads/carro1.jpg"
+                  alt="Honda Civic Touring 2022"
+                  loading="lazy"
+                />
               </figure>
+
               <div class="card-content">
                 <h3>Honda Civic Touring 2022</h3>
-                <p>Automático • 32.000 km • Flex</p>
+                <p>Sedan • 32.000 km • Flex</p>
                 <strong>R$ 149.900</strong>
-                <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+                <a href="#featured-title" class="btn btn-outline">
+                  Detalhes em breve
+                </a>
               </div>
             </article>
 
             <article class="vehicle-card" role="listitem">
               <figure>
-                <img src="../uploads/carro2.jpeg" alt="SUV branca em destaque" loading="lazy" />
+                <img
+                  src="../uploads/carro2.jpeg"
+                  alt="Jeep Compass Limited 2021"
+                  loading="lazy"
+                />
               </figure>
+
               <div class="card-content">
                 <h3>Jeep Compass Limited 2021</h3>
-                <p>Automático • 41.500 km • Diesel</p>
+                <p>SUV • 41.500 km • Diesel</p>
                 <strong>R$ 169.900</strong>
-                <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+                <a href="#featured-title" class="btn btn-outline">
+                  Detalhes em breve
+                </a>
               </div>
             </article>
 
             <article class="vehicle-card" role="listitem">
               <figure>
-                <img src="../uploads/carro3.jpg" alt="Hatch vermelho em destaque" loading="lazy" />
+                <img
+                  src="../uploads/carro3.jpg"
+                  alt="Volkswagen Polo Highline 2023"
+                  loading="lazy"
+                />
               </figure>
+
               <div class="card-content">
                 <h3>Volkswagen Polo Highline 2023</h3>
-                <p>Automático • 12.400 km • Flex</p>
+                <p>Hatch • 12.400 km • Flex</p>
                 <strong>R$ 108.500</strong>
-                <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+                <a href="#featured-title" class="btn btn-outline">
+                  Detalhes em breve
+                </a>
               </div>
             </article>
           </div>
 
-          <!-- Botão para adicionar novo carro -->
           <div class="add-car-container">
-            <button class="btn-primary" onclick="openAddCarPopup()">Adicionar Novo Carro</button>
+            <button class="btn-primary" onclick="openAddCarPopup()">
+              Adicionar Novo Carro
+            </button>
           </div>
-
         </div>
       </section>
     </main>
@@ -166,8 +224,11 @@
       <div class="container footer-inner">
         <section>
           <h2 class="footer-title">MotorPlace</h2>
-          <p>Conectando pessoas a bons carros com transparência e praticidade.</p>
+          <p>
+            Conectando pessoas a bons carros com transparência e praticidade.
+          </p>
         </section>
+
         <nav aria-label="Links institucionais">
           <ul>
             <li><a href="#featured-title">Comprar</a></li>
@@ -178,29 +239,115 @@
       </div>
     </footer>
 
-    <!--script do hambuguer -->
-    <script src="js/Hambuger.js"></script>
+    <!-- Script do menu hambúrguer -->
+    <script src="../js/Hambuger.js"></script>
 
-    <!--script para carregar carros adicionados via localStorage-->
+    <!-- Script para carregar carros e exibir automaticamente os mais baratos -->
     <script>
       const cardGrid = document.querySelector(".card-grid");
+      const bestPriceGrid = document.querySelector("#best-price-grid");
+
+      const defaultCars = [
+        {
+          name: "Honda Civic Touring 2022",
+          type: "Sedan",
+          km: "32.000",
+          fuel: "Flex",
+          price: "149.900",
+          img: "../uploads/carro1.jpg"
+        },
+        {
+          name: "Jeep Compass Limited 2021",
+          type: "SUV",
+          km: "41.500",
+          fuel: "Diesel",
+          price: "169.900",
+          img: "../uploads/carro2.jpeg"
+        },
+        {
+          name: "Volkswagen Polo Highline 2023",
+          type: "Hatch",
+          km: "12.400",
+          fuel: "Flex",
+          price: "108.500",
+          img: "../uploads/carro3.jpg"
+        }
+      ];
+
       const storedCars = JSON.parse(localStorage.getItem("cars")) || [];
 
-      storedCars.forEach(car => {
-        const cardHTML = `
+      const allCars = [...defaultCars, ...storedCars];
+
+      function priceToNumber(price) {
+        return Number(
+          String(price)
+            .replace("R$", "")
+            .replace(/\./g, "")
+            .replace(",", ".")
+            .trim()
+        );
+      }
+
+      function formatPrice(price) {
+        const numberPrice = priceToNumber(price);
+
+        return numberPrice.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        });
+      }
+
+      function createFeaturedCarCard(car) {
+        return `
           <article class="vehicle-card" role="listitem">
             <figure>
               <img src="${car.img}" alt="${car.name}" loading="lazy" />
             </figure>
+
             <div class="card-content">
               <h3>${car.name}</h3>
               <p>${car.type} • ${car.km} km • ${car.fuel}</p>
-              <strong>R$ ${car.price}</strong>
-              <a href="#featured-title" class="btn btn-outline">Detalhes em breve</a>
+              <strong>${formatPrice(car.price)}</strong>
+              <a href="#featured-title" class="btn btn-outline">
+                Detalhes em breve
+              </a>
             </div>
           </article>
         `;
-        cardGrid.insertAdjacentHTML("beforeend", cardHTML);
+      }
+
+      function createBestPriceCard(car, index) {
+        const tag = index === 0 ? "Menor preço" : "Boa oportunidade";
+
+        return `
+          <article class="best-price-card">
+            <figure>
+              <img src="${car.img}" alt="${car.name}" />
+            </figure>
+
+            <div class="best-price-info">
+              <p class="tag">${tag}</p>
+              <h4>${car.name}</h4>
+              <p>${car.type} • ${car.km} km • ${car.fuel}</p>
+              <strong>${formatPrice(car.price)}</strong>
+            </div>
+          </article>
+        `;
+      }
+
+      storedCars.forEach(car => {
+        cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car));
+      });
+
+      const cheapestCars = [...allCars]
+        .sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price))
+        .slice(0, 2);
+
+      cheapestCars.forEach((car, index) => {
+        bestPriceGrid.insertAdjacentHTML(
+          "beforeend",
+          createBestPriceCard(car, index)
+        );
       });
     </script>
 
@@ -208,9 +355,9 @@
     <script>
       function openAddCarPopup() {
         window.open(
-          'add-car.html', 
-          'Adicionar Carro', 
-          'width=500,height=600,resizable=yes,scrollbars=yes,top=100,left=100'
+          "add-car.html",
+          "Adicionar Carro",
+          "width=500,height=600,resizable=yes,scrollbars=yes,top=100,left=100"
         );
       }
     </script>
