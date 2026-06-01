@@ -19,6 +19,10 @@
       rel="stylesheet"
     />
 
+    <!-- ======================================================
+      ARQUIVOS CSS DO PROJETO
+      Cada arquivo abaixo cuida de uma parte visual do site.
+    ======================================================= -->
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/base.css" />
@@ -36,6 +40,10 @@
   </head>
 
   <body>
+    <!-- ======================================================
+      CABEÇALHO DO SITE
+      Contém a logo, o nome do projeto e o menu de navegação.
+    ======================================================= -->
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Página inicial da MotorPlace">
@@ -52,6 +60,7 @@
         </a>
 
         <nav class="main-nav" aria-label="Navegação principal">
+          <!-- Botão do menu hambúrguer usado em telas menores -->
           <button
             class="navbar__toggle"
             aria-label="Abrir menu"
@@ -64,6 +73,7 @@
             <span class="navbar__toggle-bar"></span>
           </button>
 
+          <!-- Links principais da navegação -->
           <ul class="navbar__menu" id="menu-principal">
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="#categories-title">Categorias</a></li>
@@ -78,6 +88,10 @@
     </header>
 
     <main>
+      <!-- ======================================================
+        SEÇÃO PRINCIPAL / HERO
+        Primeira área vista pelo usuário, com chamada principal e busca.
+      ======================================================= -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-inner">
           <article class="hero-copy">
@@ -94,7 +108,8 @@
           </article>
 
           <aside class="hero-search" aria-label="Busca de veículos">
-            <form class="search-form" action="#" method="get">
+            <!-- Formulário de busca usado pelo JavaScript para filtrar os carros -->
+            <form class="search-form" id="search-form">
               <label for="home-search">Buscar marca ou modelo</label>
 
               <div class="search-row">
@@ -105,13 +120,11 @@
                   placeholder="Ex.: Civic, Corolla, SUV"
                 />
 
-                <button type="button" class="btn btn-accent" aria-disabled="true">
-                  Busca em breve
-                </button>
+                <button type="submit" class="btn btn-accent">Buscar</button>
               </div>
             </form>
 
-            <!-- Área automática dos carros mais baratos -->
+            <!-- Área preenchida automaticamente pelo JavaScript com os carros mais baratos -->
             <div class="best-price-cars">
               <div class="best-price-header">
                 <h3>Carros mais baratos</h3>
@@ -119,13 +132,17 @@
               </div>
 
               <div class="best-price-grid" id="best-price-grid">
-                <!-- O JavaScript vai inserir aqui os 2 carros mais baratos -->
+                <!-- O JavaScript insere aqui os 2 carros com menor preço -->
               </div>
             </div>
           </aside>
         </div>
       </section>
 
+      <!-- ======================================================
+        SEÇÃO DE CATEGORIAS
+        Links rápidos para o usuário navegar por tipo de veículo.
+      ======================================================= -->
       <section class="section" aria-labelledby="categories-title">
         <div class="container">
           <header class="section-header">
@@ -143,6 +160,10 @@
         </div>
       </section>
 
+      <!-- ======================================================
+        SEÇÃO DE OFERTAS EM DESTAQUE
+        Contém os cards fixos e também recebe novos carros via JavaScript.
+      ======================================================= -->
       <section class="section" aria-labelledby="featured-title">
         <div class="container">
           <header class="section-header">
@@ -152,7 +173,12 @@
             </a>
           </header>
 
+          <!--
+            Grade principal dos carros.
+            A busca filtra todos os cards que estiverem dentro dessa área.
+          -->
           <div class="card-grid" role="list" aria-label="Veículos em destaque">
+            <!-- Card fixo 1: Honda Civic -->
             <article class="vehicle-card" role="listitem">
               <figure>
                 <img
@@ -172,6 +198,7 @@
               </div>
             </article>
 
+            <!-- Card fixo 2: Jeep Compass -->
             <article class="vehicle-card" role="listitem">
               <figure>
                 <img
@@ -191,6 +218,7 @@
               </div>
             </article>
 
+            <!-- Card fixo 3: Volkswagen Polo -->
             <article class="vehicle-card" role="listitem">
               <figure>
                 <img
@@ -211,8 +239,14 @@
             </article>
           </div>
 
+          <!-- Mensagem exibida apenas quando a busca não encontra nenhum carro -->
+          <p id="no-results-message" hidden>
+            Nenhum carro encontrado com esse termo.
+          </p>
+
+          <!-- Botão que abre a janela para cadastrar novo carro -->
           <div class="add-car-container">
-            <button class="btn-primary" onclick="openAddCarPopup()">
+            <button class="btn-primary" id="open-add-car-popup" type="button">
               Adicionar Novo Carro
             </button>
           </div>
@@ -220,6 +254,10 @@
       </section>
     </main>
 
+    <!-- ======================================================
+      RODAPÉ DO SITE
+      Área final com informações institucionais e links rápidos.
+    ======================================================= -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <section>
@@ -239,16 +277,42 @@
       </div>
     </footer>
 
-    <!-- Script do menu hambúrguer -->
+    <!-- ======================================================
+      SCRIPT EXTERNO: MENU HAMBÚRGUER
+      Mantido separado porque já existe um arquivo próprio para essa função.
+    ======================================================= -->
     <script src="../js/Hambuger.js"></script>
 
-    <!-- Script para carregar carros e exibir automaticamente os mais baratos -->
+    <!-- ======================================================
+      JAVASCRIPT PRINCIPAL DA PÁGINA
+      Organização dos blocos:
+      1. Seleção dos elementos do HTML
+      2. Base de dados dos carros fixos
+      3. Leitura dos carros salvos no navegador
+      4. Funções auxiliares
+      5. Funções de criação dos cards
+      6. Renderização dos carros na tela
+      7. Sistema de busca
+      8. Popup de cadastro de carro
+    ======================================================= -->
     <script>
+
+      // SELEÇÃO DOS ELEMENTOS DO HTML
+      // Esses elementos serão usados pelo JavaScript para alterar a página.
+
       const cardGrid = document.querySelector(".card-grid");
       const bestPriceGrid = document.querySelector("#best-price-grid");
+      const searchForm = document.querySelector("#search-form");
+      const searchInput = document.querySelector("#home-search");
+      const noResultsMessage = document.querySelector("#no-results-message");
+      const openAddCarPopupButton = document.querySelector("#open-add-car-popup");
 
+      // BASE DE DADOS DOS CARROS FIXOS
+      // Esses são os carros que já aparecem diretamente no HTML.
+      // A lista também é usada para calcular os carros mais baratos.
       const defaultCars = [
         {
+          id: 1,
           name: "Honda Civic Touring 2022",
           type: "Sedan",
           km: "32.000",
@@ -257,6 +321,7 @@
           img: "../uploads/carro1.jpg"
         },
         {
+          id: 2,
           name: "Jeep Compass Limited 2021",
           type: "SUV",
           km: "41.500",
@@ -265,6 +330,7 @@
           img: "../uploads/carro2.jpeg"
         },
         {
+          id: 3,
           name: "Volkswagen Polo Highline 2023",
           type: "Hatch",
           km: "12.400",
@@ -274,10 +340,18 @@
         }
       ];
 
+      //LEITURA DOS CARROS SALVOS NO NAVEGADOR
+      // O localStorage guarda os carros cadastrados pelo usuário.
+      // Se não existir nada salvo, usamos uma lista vazia.
       const storedCars = JSON.parse(localStorage.getItem("cars")) || [];
 
-      const allCars = [...defaultCars, ...storedCars];
+      //FUNÇÕES AUXILIARES
+      // São funções pequenas usadas por outras partes do código.
 
+      /**
+       * Converte um preço em texto para número.
+       * Exemplo: "R$ 149.900" ou "149.900" vira 149900.
+       */
       function priceToNumber(price) {
         return Number(
           String(price)
@@ -288,6 +362,10 @@
         );
       }
 
+      /**
+       * Formata o preço para o padrão brasileiro.
+       * Exemplo: 149900 vira "R$ 149.900,00".
+       */
       function formatPrice(price) {
         const numberPrice = priceToNumber(price);
 
@@ -297,6 +375,25 @@
         });
       }
 
+      /**
+       * Padroniza textos para facilitar a busca.
+       * A função transforma em minúsculo e remove acentos.
+       */
+      function normalizeText(text) {
+        return String(text)
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .trim();
+      }
+
+      //FUNÇÕES DE CRIAÇÃO DOS CARDS
+      // Essas funções retornam blocos de HTML prontos para inserir na tela.
+
+      /**
+       * Cria o card de um carro cadastrado pelo usuário.
+       * Esse card será inserido na seção "Ofertas em destaque".
+       */
       function createFeaturedCarCard(car, index) {
         return `
           <article class="vehicle-card" role="listitem">
@@ -316,59 +413,132 @@
         `;
       }
 
+      /**
+       * Cria o card usado na área "Carros mais baratos".
+       * O primeiro carro recebe a etiqueta "Menor preço".
+       */
       function createBestPriceCard(car, index, sourceType, sourceIndex) {
-      const tag = index === 0 ? "Menor preço" : "Oferta";
+        const tag = index === 0 ? "Menor preço" : "Oferta";
 
-      return `
-        <article class="best-price-card">
-          <figure>
-            <img src="${car.img}" alt="${car.name}" />
-          </figure>
+        return `
+          <article class="best-price-card">
+            <figure>
+              <img src="${car.img}" alt="${car.name}" />
+            </figure>
 
-          <div class="best-price-info">
-            <p class="tag">${tag}</p>
-            <h4>${car.name}</h4>
-            <p>${car.type} • ${car.km} km • ${car.fuel}</p>
-            <strong>${formatPrice(car.price)}</strong>
-            <a href="car-details.html?type=${sourceType}&id=${sourceIndex}" class="best-price-link">
-              Ver detalhes
-            </a>
-          </div>
-        </article>
-      `;
-    }
+            <div class="best-price-info">
+              <p class="tag">${tag}</p>
+              <h4>${car.name}</h4>
+              <p>${car.type} • ${car.km} km • ${car.fuel}</p>
+              <strong>${formatPrice(car.price)}</strong>
+              <a href="car-details.html?type=${sourceType}&id=${sourceIndex}" class="best-price-link">
+                Ver detalhes
+              </a>
+            </div>
+          </article>
+        `;
+      }
 
-      storedCars.forEach((car, index) => {
-        cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car, index));
-      });
+      //RENDERIZAÇÃO DOS CARROS NA TELA
+      // Aqui o JavaScript insere os carros salvos e monta a área dos mais baratos.
 
-      const allCarsWithSource = [
-        ...defaultCars.map((car) => ({
+      /**
+       * Insere na grade principal os carros cadastrados pelo usuário.
+       */
+      function renderStoredCars() {
+        storedCars.forEach((car, index) => {
+          cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car, index));
+        });
+      }
+
+      /**
+       * Junta carros fixos e cadastrados, mantendo a origem de cada um.
+       * Essa origem é usada no link "Ver detalhes".
+       */
+      function getAllCarsWithSource() {
+        const defaultCarsWithSource = defaultCars.map((car) => ({
           ...car,
           sourceType: "default",
           sourceIndex: car.id
-        })),
-        ...storedCars.map((car, index) => ({
+        }));
+
+        const storedCarsWithSource = storedCars.map((car, index) => ({
           ...car,
           sourceType: "stored",
           sourceIndex: index
-        }))
-      ];
+        }));
 
-      const cheapestCars = [...allCarsWithSource]
-        .sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price))
-        .slice(0, 2);
+        return [...defaultCarsWithSource, ...storedCarsWithSource];
+      }
 
-      cheapestCars.forEach((car, index) => {
-        bestPriceGrid.insertAdjacentHTML(
-          "beforeend",
-          createBestPriceCard(car, index, car.sourceType, car.sourceIndex)
-        );
-      });
-    </script>
+      /**
+       * Mostra automaticamente os 2 carros com menor preço na área superior.
+       */
+      function renderCheapestCars() {
+        const allCarsWithSource = getAllCarsWithSource();
 
-    <!-- Função JS para abrir popup -->
-    <script>
+        const cheapestCars = [...allCarsWithSource]
+          .sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price))
+          .slice(0, 2);
+
+        cheapestCars.forEach((car, index) => {
+          bestPriceGrid.insertAdjacentHTML(
+            "beforeend",
+            createBestPriceCard(car, index, car.sourceType, car.sourceIndex)
+          );
+        });
+      }
+
+      // 7. SISTEMA DE BUSCA
+      // Filtra os cards de veículos conforme o texto digitado pelo usuário.
+
+      /**
+       * Filtra os carros exibidos em "Ofertas em destaque".
+       * A busca compara o termo digitado com todo o texto de cada card.
+       */
+      function filterCars() {
+        const searchTerm = normalizeText(searchInput.value);
+        const vehicleCards = document.querySelectorAll(".card-grid .vehicle-card");
+        let visibleCards = 0;
+
+        vehicleCards.forEach((card) => {
+          const cardText = normalizeText(card.textContent);
+          const matchesSearch = cardText.includes(searchTerm);
+
+          if (matchesSearch) {
+            card.style.display = "";
+            visibleCards++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        //Se nenhum card aparecer, mostra a mensagem de "Nenhum carro encontrado".
+        noResultsMessage.hidden = visibleCards > 0;
+      }
+
+      /**
+       *Ativa os eventos da busca:
+       * - submit: quando o usuário clica no botão "Buscar";
+       * - input: enquanto o usuário digita no campo de busca.
+       */
+      function setupSearchEvents() {
+        searchForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          filterCars();
+        });
+
+        searchInput.addEventListener("input", () => {
+          filterCars();
+        });
+      }
+
+      //POPUP DE CADASTRO DE CARRO
+      // Abre uma nova janela menor com a página add-car.html.
+
+      /**
+       * Abre o formulário de cadastro de novo carro em uma janela popup.
+       */
       function openAddCarPopup() {
         window.open(
           "add-car.html",
@@ -376,6 +546,20 @@
           "width=500,height=600,resizable=yes,scrollbars=yes,top=100,left=100"
         );
       }
+
+      /**
+       *Liga o botão "Adicionar Novo Carro" à função que abre o popup.
+       */
+      function setupPopupEvent() {
+        openAddCarPopupButton.addEventListener("click", openAddCarPopup);
+      }
+
+      //INICIALIZAÇÃO DA PÁGINA
+      //Executa todas as funções necessárias quando o arquivo é carregado.
+      renderStoredCars();
+      renderCheapestCars();
+      setupSearchEvents();
+      setupPopupEvent();
     </script>
   </body>
 </html>

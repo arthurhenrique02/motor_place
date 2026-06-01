@@ -21,3 +21,11 @@
     flex-direction: column;
   }
 }
+
+#no-results-message {
+  margin-top: var(--space-13);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-muted);
+}
