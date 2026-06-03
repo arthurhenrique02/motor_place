@@ -151,11 +151,12 @@
           </header>
 
           <ul class="category-list" aria-label="Categorias de veículos">
-            <li><a href="#featured-title">SUVs</a></li>
-            <li><a href="#featured-title">Sedans</a></li>
-            <li><a href="#featured-title">Hatches</a></li>
-            <li><a href="#featured-title">Pickups</a></li>
-            <li><a href="#featured-title">Elétricos</a></li>
+            <li><a href="#featured-title" data-category="">Todos</a></li>
+            <li><a href="#featured-title" data-category="SUV">SUVs</a></li>
+            <li><a href="#featured-title" data-category="Sedan">Sedans</a></li>
+            <li><a href="#featured-title" data-category="Hatch">Hatches</a></li>
+            <li><a href="#featured-title" data-category="Pickup">Pickups</a></li>
+            <li><a href="#featured-title" data-category="Elétrico">Elétricos</a></li>
           </ul>
         </div>
       </section>
@@ -240,6 +241,7 @@
       const bestPriceGrid = document.querySelector("#best-price-grid");
       const searchForm = document.querySelector("#search-form");
       const searchInput = document.querySelector("#home-search");
+      const categoryLinks = document.querySelectorAll(".category-list a");
       const noResultsMessage = document.querySelector("#no-results-message");
       const openAddCarPopupButton = document.querySelector("#open-add-car-popup");
 
@@ -276,6 +278,7 @@
       ];
 
       let cars = [];
+      let selectedCategory = "";
 
       //FUNÇÕES AUXILIARES
       // São funções pequenas usadas por outras partes do código.
@@ -335,6 +338,14 @@
           price: car.price || 0,
           img: car.thumbnail || car.img || ""
         };
+      }
+
+      function matchesCategory(car, category) {
+        if (!category) {
+          return true;
+        }
+
+        return normalizeText(car.type) === normalizeText(category);
       }
 
       async function loadCars() {
@@ -411,11 +422,27 @@
        * Insere na grade principal os carros cadastrados pelo usuário.
        */
       function renderStoredCars() {
+        renderFilteredCars();
+      }
+
+      function renderFilteredCars() {
+        const searchTerm = normalizeText(searchInput.value);
+
         cardGrid.innerHTML = "";
 
-        cars.forEach((car) => {
+        const filteredCars = cars.filter((car) => {
+          const matchesSearch =
+            !searchTerm ||
+            normalizeText(`${car.name} ${car.type} ${car.fuel}`).includes(searchTerm);
+
+          return matchesCategory(car, selectedCategory) && matchesSearch;
+        });
+
+        filteredCars.forEach((car) => {
           cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car));
         });
+
+        noResultsMessage.hidden = filteredCars.length > 0;
       }
 
       /**
@@ -444,24 +471,7 @@
        * A busca compara o termo digitado com todo o texto de cada card.
        */
       function filterCars() {
-        const searchTerm = normalizeText(searchInput.value);
-        const vehicleCards = document.querySelectorAll(".card-grid .vehicle-card");
-        let visibleCards = 0;
-
-        vehicleCards.forEach((card) => {
-          const cardText = normalizeText(card.textContent);
-          const matchesSearch = cardText.includes(searchTerm);
-
-          if (matchesSearch) {
-            card.style.display = "";
-            visibleCards++;
-          } else {
-            card.style.display = "none";
-          }
-        });
-
-        //Se nenhum card aparecer, mostra a mensagem de "Nenhum carro encontrado".
-        noResultsMessage.hidden = visibleCards > 0;
+        renderFilteredCars();
       }
 
       /**
@@ -477,6 +487,16 @@
 
         searchInput.addEventListener("input", () => {
           filterCars();
+        });
+      }
+
+      function setupCategoryEvents() {
+        categoryLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            selectedCategory = link.dataset.category || "";
+            renderFilteredCars();
+          });
         });
       }
 
@@ -508,6 +528,7 @@
         renderStoredCars();
         renderCheapestCars();
         setupSearchEvents();
+        setupCategoryEvents();
         setupPopupEvent();
       }
 
