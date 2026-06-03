@@ -59,34 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
       img: "../uploads/carro3.jpg"
     }
   ];
-
-  const storedCars = JSON.parse(localStorage.getItem("cars")) || [];
-
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get("type");
-  const id = Number(params.get("id"));
-
-  let selectedCar = null;
-
-  if (type === "default") {
-    selectedCar = defaultCars.find((car) => car.id === id);
-  }
-
-  if (type === "stored") {
-    selectedCar = storedCars[id];
-  }
-
-  if (!selectedCar) {
-    detailsContainer.innerHTML = `
-      <div class="details-empty">
-        <h1>Carro não encontrado</h1>
-        <p>Não foi possível localizar os detalhes deste veículo.</p>
-        <a href="index.html" class="btn btn-primary">Voltar para a página inicial</a>
-      </div>
-    `;
-    return;
-  }
-
   function priceToNumber(price) {
     return Number(
       String(price)
@@ -106,73 +78,133 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  detailsContainer.innerHTML = `
-    <div class="car-details-media">
-      <img src="${selectedCar.img}" alt="${selectedCar.name}" />
-    </div>
+  function formatKm(km) {
+    const numberKm = Number(String(km).replace(/\./g, "").replace(",", ".").trim());
+    return Number.isFinite(numberKm) ? numberKm.toLocaleString("pt-BR") : String(km);
+  }
 
-    <div class="car-details-content">
-      <p class="details-eyebrow">Detalhes do veículo</p>
+  function normalizeCar(car) {
+    return {
+      id: car.id,
+      name: car.title || car.name || "Sem nome",
+      brand: car.brand || "Não informado",
+      model: car.model || "Não informado",
+      type: car.category || car.type || "Não informado",
+      year: car.year || "Não informado",
+      km: formatKm(car.km || 0),
+      fuel: car.fuel || "Não informado",
+      transmission: car.transmission || "Não informado",
+      color: car.color || "Não informado",
+      location: car.location || "Não informado",
+      price: car.price || 0,
+      description: car.description || "Veículo cadastrado no marketplace MotorPlace.",
+      img: car.thumbnail || car.img || "../uploads/carro1.jpg"
+    };
+  }
 
-      <h1>${selectedCar.name}</h1>
+  async function loadCars() {
+    try {
+      const response = await fetch("/api/cars");
 
-      <strong class="details-price">${formatPrice(selectedCar.price)}</strong>
+      if (!response.ok) {
+        throw new Error("Falha ao carregar os carros");
+      }
 
-      <p class="details-description">
-        ${selectedCar.description || "Veículo cadastrado no marketplace MotorPlace."}
-      </p>
+      const data = await response.json();
+      return Array.isArray(data.vehicles) ? data.vehicles.map(normalizeCar) : defaultCars;
+    } catch {
+      return defaultCars;
+    }
+  }
 
-      <div class="details-specs">
-        <div>
-          <span>Marca</span>
-          <strong>${selectedCar.brand || "Não informado"}</strong>
+  async function renderCarDetails() {
+    const params = new URLSearchParams(window.location.search);
+    const id = Number(params.get("id"));
+
+    const cars = await loadCars();
+    const selectedCar = cars.find((car) => car.id === id);
+
+    if (!selectedCar) {
+      detailsContainer.innerHTML = `
+        <div class="details-empty">
+          <h1>Carro não encontrado</h1>
+          <p>Não foi possível localizar os detalhes deste veículo.</p>
+          <a href="index.html" class="btn btn-primary">Voltar para a página inicial</a>
         </div>
+      `;
+      return;
+    }
 
-        <div>
-          <span>Modelo</span>
-          <strong>${selectedCar.model || "Não informado"}</strong>
-        </div>
-
-        <div>
-          <span>Categoria</span>
-          <strong>${selectedCar.type || "Não informado"}</strong>
-        </div>
-
-        <div>
-          <span>Ano</span>
-          <strong>${selectedCar.year || "Não informado"}</strong>
-        </div>
-
-        <div>
-          <span>Quilometragem</span>
-          <strong>${selectedCar.km || "0"} km</strong>
-        </div>
-
-        <div>
-          <span>Combustível</span>
-          <strong>${selectedCar.fuel || "Não informado"}</strong>
-        </div>
-
-        <div>
-          <span>Câmbio</span>
-          <strong>${selectedCar.transmission || "Não informado"}</strong>
-        </div>
-
-        <div>
-          <span>Cor</span>
-          <strong>${selectedCar.color || "Não informado"}</strong>
-        </div>
-
-        <div>
-          <span>Localização</span>
-          <strong>${selectedCar.location || "Não informado"}</strong>
-        </div>
+    detailsContainer.innerHTML = `
+      <div class="car-details-media">
+        <img src="${selectedCar.img}" alt="${selectedCar.name}" />
       </div>
 
-      <div class="details-actions">
-        <a href="index.html#featured-title" class="btn btn-outline">Voltar para ofertas</a>
-        <a href="#" class="btn btn-primary">Tenho interesse</a>
+      <div class="car-details-content">
+        <p class="details-eyebrow">Detalhes do veículo</p>
+
+        <h1>${selectedCar.name}</h1>
+
+        <strong class="details-price">${formatPrice(selectedCar.price)}</strong>
+
+        <p class="details-description">
+          ${selectedCar.description}
+        </p>
+
+        <div class="details-specs">
+          <div>
+            <span>Marca</span>
+            <strong>${selectedCar.brand}</strong>
+          </div>
+
+          <div>
+            <span>Modelo</span>
+            <strong>${selectedCar.model}</strong>
+          </div>
+
+          <div>
+            <span>Categoria</span>
+            <strong>${selectedCar.type}</strong>
+          </div>
+
+          <div>
+            <span>Ano</span>
+            <strong>${selectedCar.year}</strong>
+          </div>
+
+          <div>
+            <span>Quilometragem</span>
+            <strong>${selectedCar.km} km</strong>
+          </div>
+
+          <div>
+            <span>Combustível</span>
+            <strong>${selectedCar.fuel}</strong>
+          </div>
+
+          <div>
+            <span>Câmbio</span>
+            <strong>${selectedCar.transmission}</strong>
+          </div>
+
+          <div>
+            <span>Cor</span>
+            <strong>${selectedCar.color}</strong>
+          </div>
+
+          <div>
+            <span>Localização</span>
+            <strong>${selectedCar.location}</strong>
+          </div>
+        </div>
+
+        <div class="details-actions">
+          <a href="index.html#featured-title" class="btn btn-outline">Voltar para ofertas</a>
+          <a href="#" class="btn btn-primary">Tenho interesse</a>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
+
+  renderCarDetails();
 });

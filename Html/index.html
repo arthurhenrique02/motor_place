@@ -173,71 +173,7 @@
             </a>
           </header>
 
-          <!--
-            Grade principal dos carros.
-            A busca filtra todos os cards que estiverem dentro dessa área.
-          -->
-          <div class="card-grid" role="list" aria-label="Veículos em destaque">
-            <!-- Card fixo 1: Honda Civic -->
-            <article class="vehicle-card" role="listitem">
-              <figure>
-                <img
-                  src="../uploads/carro1.jpg"
-                  alt="Honda Civic Touring 2022"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div class="card-content">
-                <h3>Honda Civic Touring 2022</h3>
-                <p>Sedan • 32.000 km • Flex</p>
-                <strong>R$ 149.900</strong>
-                <a href="car-details.html?type=default&id=1" class="btn btn-outline">
-                  Ver detalhes
-                </a>
-              </div>
-            </article>
-
-            <!-- Card fixo 2: Jeep Compass -->
-            <article class="vehicle-card" role="listitem">
-              <figure>
-                <img
-                  src="../uploads/carro2.jpeg"
-                  alt="Jeep Compass Limited 2021"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div class="card-content">
-                <h3>Jeep Compass Limited 2021</h3>
-                <p>SUV • 41.500 km • Diesel</p>
-                <strong>R$ 169.900</strong>
-                <a href="car-details.html?type=default&id=2" class="btn btn-outline">
-                  Ver detalhes
-                </a>
-              </div>
-            </article>
-
-            <!-- Card fixo 3: Volkswagen Polo -->
-            <article class="vehicle-card" role="listitem">
-              <figure>
-                <img
-                  src="../uploads/carro3.jpg"
-                  alt="Volkswagen Polo Highline 2023"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div class="card-content">
-                <h3>Volkswagen Polo Highline 2023</h3>
-                <p>Hatch • 12.400 km • Flex</p>
-                <strong>R$ 108.500</strong>
-                <a href="car-details.html?type=default&id=3" class="btn btn-outline">
-                  Ver detalhes
-                </a>
-              </div>
-            </article>
-          </div>
+          <ul class="card-grid" aria-label="Veículos em destaque"></ul>
 
           <!-- Mensagem exibida apenas quando a busca não encontra nenhum carro -->
           <p id="no-results-message" hidden>
@@ -308,8 +244,7 @@
       const openAddCarPopupButton = document.querySelector("#open-add-car-popup");
 
       // BASE DE DADOS DOS CARROS FIXOS
-      // Esses são os carros que já aparecem diretamente no HTML.
-      // A lista também é usada para calcular os carros mais baratos.
+      // Mantida como fallback caso a API não responda.
       const defaultCars = [
         {
           id: 1,
@@ -340,10 +275,7 @@
         }
       ];
 
-      //LEITURA DOS CARROS SALVOS NO NAVEGADOR
-      // O localStorage guarda os carros cadastrados pelo usuário.
-      // Se não existir nada salvo, usamos uma lista vazia.
-      const storedCars = JSON.parse(localStorage.getItem("cars")) || [];
+      let cars = [];
 
       //FUNÇÕES AUXILIARES
       // São funções pequenas usadas por outras partes do código.
@@ -375,6 +307,12 @@
         });
       }
 
+      function formatKm(km) {
+        const numberKm = Number(String(km).replace(/\./g, "").replace(",", ".").trim());
+
+        return Number.isFinite(numberKm) ? numberKm.toLocaleString("pt-BR") : String(km);
+      }
+
       /**
        * Padroniza textos para facilitar a busca.
        * A função transforma em minúsculo e remove acentos.
@@ -387,6 +325,33 @@
           .trim();
       }
 
+      function normalizeCar(car) {
+        return {
+          id: car.id,
+          name: car.title || car.name || "Sem nome",
+          type: car.category || car.type || "Sem categoria",
+          km: formatKm(car.km || 0),
+          fuel: car.fuel || "Não informado",
+          price: car.price || 0,
+          img: car.thumbnail || car.img || ""
+        };
+      }
+
+      async function loadCars() {
+        try {
+          const response = await fetch("/api/cars");
+
+          if (!response.ok) {
+            throw new Error("Falha ao carregar os carros");
+          }
+
+          const data = await response.json();
+          cars = Array.isArray(data.vehicles) ? data.vehicles.map(normalizeCar) : defaultCars;
+        } catch {
+          cars = defaultCars;
+        }
+      }
+
       //FUNÇÕES DE CRIAÇÃO DOS CARDS
       // Essas funções retornam blocos de HTML prontos para inserir na tela.
 
@@ -394,9 +359,9 @@
        * Cria o card de um carro cadastrado pelo usuário.
        * Esse card será inserido na seção "Ofertas em destaque".
        */
-      function createFeaturedCarCard(car, index) {
+      function createFeaturedCarCard(car) {
         return `
-          <article class="vehicle-card" role="listitem">
+          <li class="vehicle-card">
             <figure>
               <img src="${car.img}" alt="${car.name}" loading="lazy" />
             </figure>
@@ -405,11 +370,11 @@
               <h3>${car.name}</h3>
               <p>${car.type} • ${car.km} km • ${car.fuel}</p>
               <strong>${formatPrice(car.price)}</strong>
-              <a href="car-details.html?type=stored&id=${index}" class="btn btn-outline">
+              <a href="car-details.html?id=${car.id}" class="btn btn-outline">
                 Ver detalhes
               </a>
             </div>
-          </article>
+          </li>
         `;
       }
 
@@ -417,7 +382,7 @@
        * Cria o card usado na área "Carros mais baratos".
        * O primeiro carro recebe a etiqueta "Menor preço".
        */
-      function createBestPriceCard(car, index, sourceType, sourceIndex) {
+      function createBestPriceCard(car, index) {
         const tag = index === 0 ? "Menor preço" : "Oferta";
 
         return `
@@ -431,7 +396,7 @@
               <h4>${car.name}</h4>
               <p>${car.type} • ${car.km} km • ${car.fuel}</p>
               <strong>${formatPrice(car.price)}</strong>
-              <a href="car-details.html?type=${sourceType}&id=${sourceIndex}" class="best-price-link">
+              <a href="car-details.html?id=${car.id}" class="best-price-link">
                 Ver detalhes
               </a>
             </div>
@@ -446,45 +411,27 @@
        * Insere na grade principal os carros cadastrados pelo usuário.
        */
       function renderStoredCars() {
-        storedCars.forEach((car, index) => {
-          cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car, index));
+        cardGrid.innerHTML = "";
+
+        cars.forEach((car) => {
+          cardGrid.insertAdjacentHTML("beforeend", createFeaturedCarCard(car));
         });
-      }
-
-      /**
-       * Junta carros fixos e cadastrados, mantendo a origem de cada um.
-       * Essa origem é usada no link "Ver detalhes".
-       */
-      function getAllCarsWithSource() {
-        const defaultCarsWithSource = defaultCars.map((car) => ({
-          ...car,
-          sourceType: "default",
-          sourceIndex: car.id
-        }));
-
-        const storedCarsWithSource = storedCars.map((car, index) => ({
-          ...car,
-          sourceType: "stored",
-          sourceIndex: index
-        }));
-
-        return [...defaultCarsWithSource, ...storedCarsWithSource];
       }
 
       /**
        * Mostra automaticamente os 2 carros com menor preço na área superior.
        */
       function renderCheapestCars() {
-        const allCarsWithSource = getAllCarsWithSource();
+        bestPriceGrid.innerHTML = "";
 
-        const cheapestCars = [...allCarsWithSource]
+        const cheapestCars = [...cars]
           .sort((a, b) => priceToNumber(a.price) - priceToNumber(b.price))
           .slice(0, 2);
 
         cheapestCars.forEach((car, index) => {
           bestPriceGrid.insertAdjacentHTML(
             "beforeend",
-            createBestPriceCard(car, index, car.sourceType, car.sourceIndex)
+            createBestPriceCard(car, index)
           );
         });
       }
@@ -556,10 +503,15 @@
 
       //INICIALIZAÇÃO DA PÁGINA
       //Executa todas as funções necessárias quando o arquivo é carregado.
-      renderStoredCars();
-      renderCheapestCars();
-      setupSearchEvents();
-      setupPopupEvent();
+      async function initPage() {
+        await loadCars();
+        renderStoredCars();
+        renderCheapestCars();
+        setupSearchEvents();
+        setupPopupEvent();
+      }
+
+      initPage();
     </script>
   </body>
 </html>

@@ -42,7 +42,7 @@
         <h2>Adicionar Novo Carro</h2>
 
         <!-- Formulário -->
-        <form id="add-car-form" class="add-car-form-container">
+        <form id="add-car-form" class="add-car-form-container" enctype="multipart/form-data">
           <div class="form-group">
             <label for="car-name">Nome do carro</label>
             <input
@@ -166,12 +166,12 @@
           </div>
 
           <div class="form-group">
-            <label for="car-img">URL da Imagem</label>
+            <label for="car-img">Imagem do carro</label>
             <input
-              type="text"
+              type="file"
               id="car-img"
-              name="carImg"
-              placeholder="../uploads/carro4.jpg"
+              name="carImage"
+              accept="image/*"
               required
             />
           </div>

@@ -6,40 +6,36 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const car = {
-      name: document.getElementById("car-name").value.trim(),
-      brand: document.getElementById("car-brand").value.trim(),
-      model: document.getElementById("car-model").value.trim(),
-      type: document.getElementById("car-type").value.trim(),
-      year: document.getElementById("car-year").value.trim(),
-      km: document.getElementById("car-km").value.trim(),
-      fuel: document.getElementById("car-fuel").value.trim(),
-      transmission: document.getElementById("car-transmission").value.trim(),
-      color: document.getElementById("car-color").value.trim(),
-      location: document.getElementById("car-location").value.trim(),
-      price: document.getElementById("car-price").value.trim(),
-      description: document.getElementById("car-description").value.trim(),
-      img: document.getElementById("car-img").value.trim()
-    };
+    const formData = new FormData(form);
 
-    const cars = JSON.parse(localStorage.getItem("cars")) || [];
+    try {
+      const response = await fetch("/api/cars", {
+        method: "POST",
+        body: formData
+      });
 
-    cars.push(car);
+      if (!response.ok) {
+        throw new Error("Falha ao salvar o carro");
+      }
 
-    localStorage.setItem("cars", JSON.stringify(cars));
+      const savedCar = await response.json();
 
-    alert(`Carro adicionado: ${car.name}`);
+      alert(`Carro adicionado: ${savedCar.name}`);
 
-    form.reset();
+      form.reset();
 
-    if (window.opener) {
-      window.opener.location.reload();
-      window.close();
-    } else {
-      window.location.href = "index.html";
+      if (window.opener) {
+        window.opener.location.reload();
+        window.close();
+      } else {
+        window.location.href = "index.html";
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Não foi possível salvar o carro.");
     }
   });
 });
