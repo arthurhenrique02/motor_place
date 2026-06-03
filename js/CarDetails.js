@@ -102,26 +102,21 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  async function loadCars() {
+  function loadCars() {
     try {
-      const response = await fetch("/api/cars");
-
-      if (!response.ok) {
-        throw new Error("Falha ao carregar os carros");
-      }
-
-      const data = await response.json();
-      return Array.isArray(data.vehicles) ? data.vehicles.map(normalizeCar) : defaultCars;
+      const data = JSON.parse(localStorage.getItem("motorplace_cars") || '{"vehicles":[]}');
+      const saved = Array.isArray(data.vehicles) ? data.vehicles.map(normalizeCar) : [];
+      return [...defaultCars, ...saved];
     } catch {
       return defaultCars;
     }
   }
 
-  async function renderCarDetails() {
+  function renderCarDetails() {
     const params = new URLSearchParams(window.location.search);
     const id = Number(params.get("id"));
 
-    const cars = await loadCars();
+    const cars = loadCars();
     const selectedCar = cars.find((car) => car.id === id);
 
     if (!selectedCar) {
