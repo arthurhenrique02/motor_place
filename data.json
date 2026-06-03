@@ -62,6 +62,48 @@
         "/uploads/carro3.jpg"
       ],
       "videos": []
+    },
+    {
+      "id": 4,
+      "title": "Novo carro",
+      "brand": "",
+      "model": "",
+      "category": "",
+      "year": 2026,
+      "price": 0,
+      "km": 0,
+      "fuel": "",
+      "transmission": "",
+      "color": "",
+      "location": "",
+      "featured": false,
+      "description": "",
+      "thumbnail": "/uploads/1780513962463-fiat-uno-1-0-mpi-mille-fire-economy-8v-flex-2p-manual-wmimagem1633389707.jpg",
+      "images": [
+        "/uploads/1780513962463-fiat-uno-1-0-mpi-mille-fire-economy-8v-flex-2p-manual-wmimagem1633389707.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "id": 5,
+      "title": "Fiat Uno 2000",
+      "brand": "Fiat",
+      "model": "Uno",
+      "category": "Sedan",
+      "year": 2000,
+      "price": 12312,
+      "km": 234232,
+      "fuel": "Gasolina",
+      "transmission": "Manual",
+      "color": "Preto",
+      "location": "João Pessoa - PB",
+      "featured": false,
+      "description": "ststse",
+      "thumbnail": "/uploads/1780514132168-fiat-uno-1-0-mpi-mille-fire-economy-8v-flex-2p-manual-wmimagem1633389707.jpg",
+      "images": [
+        "/uploads/1780514132168-fiat-uno-1-0-mpi-mille-fire-economy-8v-flex-2p-manual-wmimagem1633389707.jpg"
+      ],
+      "videos": []
     }
   ]
 }
